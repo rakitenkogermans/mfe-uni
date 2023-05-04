@@ -1,0 +1,465 @@
+{
+  "laptops": [
+    {
+      "id": 1,
+      "name": "Alienware M15 R5",
+      "price": 1999,
+      "description": "15.6-inch gaming laptop with 144Hz display",
+      "image": "https://example.com/alienware-m15-r5.jpg",
+      "longDescription": "The Alienware M15 R5 is a powerful gaming laptop with an Intel Core i7 processor, NVIDIA GeForce RTX 3060 graphics, and 16GB of RAM. The 15.6-inch display has a refresh rate of 144Hz for smooth gameplay.",
+      "type": [
+        "gaming"
+      ]
+    },
+    {
+      "id": 2,
+      "name": "Dell XPS 13",
+      "price": 1099,
+      "description": "13.3-inch ultrabook with 4K display",
+      "image": "https://example.com/dell-xps-13.jpg",
+      "longDescription": "The Dell XPS 13 is a premium ultrabook with a 10th-gen Intel Core i7 processor, 16GB of RAM, and a 512GB SSD. The 13.3-inch display has a resolution of 3840x2160 and covers 100% of the sRGB color gamut.",
+      "type": [
+        "ultrabook"
+      ]
+    },
+    {
+      "id": 3,
+      "name": "Lenovo ThinkPad X1 Carbon",
+      "price": 1699,
+      "description": "14-inch business laptop with 4G LTE",
+      "image": "https://example.com/lenovo-thinkpad-x1-carbon.jpg",
+      "longDescription": "The Lenovo ThinkPad X1 Carbon is a lightweight business laptop with an Intel Core i5 processor, 16GB of RAM, and a 512GB SSD. It also has a built-in 4G LTE modem for always-on connectivity.",
+      "type": [
+        "business"
+      ]
+    },
+    {
+      "id": 4,
+      "name": "HP Envy x360",
+      "price": 899,
+      "description": "13.3-inch 2-in-1 laptop with AMD Ryzen 7 processor",
+      "image": "https://example.com/hp-envy-x360.jpg",
+      "longDescription": "The HP Envy x360 is a versatile 2-in-1 laptop with a touchscreen display that can be flipped 360 degrees. It has an AMD Ryzen 7 processor, 16GB of RAM, and a 512GB SSD.",
+      "type": [
+        "2in1"
+      ]
+    },
+    {
+      "id": 5,
+      "name": "Acer Chromebook Spin 13",
+      "price": 599,
+      "description": "13.5-inch Chromebook with stylus support",
+      "image": "https://example.com/acer-chromebook-spin-13.jpg",
+      "longDescription": "The Acer Chromebook Spin 13 is a lightweight and durable laptop that runs on Chrome OS. It has a 13.5-inch touchscreen display and comes with a stylus for taking notes and drawing.",
+      "type": [
+        "chromebook"
+      ]
+    },
+    {
+      "id": 6,
+      "name": "Asus ROG Zephyrus G15",
+      "price": 1499,
+      "description": "15.6-inch gaming laptop with AMD Ryzen 7 processor",
+      "image": "https://example.com/asus-rog-zephyrus-g15.jpg",
+      "longDescription": "The Asus ROG Zephyrus G15 is a powerful gaming laptop with an AMD Ryzen 7 processor, NVIDIA GeForce RTX 3060 graphics, and 16GB of RAM. The 15.6-inch display has a refresh rate of 144Hz for smooth gameplay.",
+      "type": [
+        "gaming"
+      ]
+    },
+    {
+      "id": 7,
+      "name": "Dell Latitude 9420",
+      "price": 2099,
+      "description": "14-inch business laptop with 5G",
+      "image": "https://example.com/dell-latitude-9420.jpg",
+      "longDescription": "The Dell Latitude 9420 is a premium business laptop with an 11th-gen Intel Core i7 processor, 16GB of RAM, and a 1TB SSD. It also has a built-in 5G modem for lightning-fast internet speeds.",
+      "type": [
+        "business"
+      ]
+    },
+    {
+      "id": 8,
+      "name": "Lenovo Yoga 9i",
+      "price": 1299,
+      "description": "14-inch 2-in-1 laptop with 4K display",
+      "image": "https://example.com/lenovo-yoga-9i.jpg",
+      "longDescription": "The Lenovo Yoga 9i is a versatile 2-in-1 laptop with a 14-inch touchscreen display that has a resolution of 3840x2160. It has an 11th-gen Intel Core i7 processor, 16GB of RAM, and a 512GB SSD.",
+      "type": [
+        "2in1"
+      ]
+    },
+    {
+      "id": 9,
+      "name": "Acer Predator Triton 300",
+      "price": 1399,
+      "description": "15.6-inch gaming laptop with 240Hz display",
+      "image": "https://example.com/acer-predator-triton-300.jpg",
+      "longDescription": "The Acer Predator Triton 300 is a high-performance gaming laptop with an Intel Core i7 processor, NVIDIA GeForce RTX 3070 graphics, and 16GB of RAM. The 15.6-inch display has a refresh rate of 240Hz for ultra-smooth gameplay.",
+      "type": [
+        "gaming"
+      ]
+    },
+    {
+      "id": 10,
+      "name": "HP Elite Dragonfly",
+      "price": 1999,
+      "description": "13.3-inch business laptop with 5G",
+      "image": "https://example.com/hp-elite-dragonfly.jpg",
+      "longDescription": "The HP Elite Dragonfly is a premium business laptop with an 11th-gen Intel Core i7 processor, 16GB of RAM, and a 1TB SSD. It also has a built-in 5G modem for fast internet speeds wherever you go.",
+      "type": [
+        "business"
+      ]
+    },
+    {
+      "id": 12,
+      "name": "Lenovo Chromebook Duet",
+      "price": 349,
+      "description": "10.1-inch 2-in-1 Chromebook with detachable keyboard",
+      "image": "https://example.com/lenovo-chromebook-duet.jpg",
+      "longDescription": "The Lenovo Chromebook Duet is a lightweight and portable 2-in-1 Chromebook with a 10.1-inch touchscreen display that can be detached from the keyboard. It has an ARM processor, 4GB of RAM, and a 128GB SSD.",
+      "type": ["chromebook", "2in1"]
+    },
+    {
+      "id": 13,
+      "name": "Razer Blade Stealth 13",
+      "price": 1599,
+      "description": "13.3-inch ultrabook for gaming and productivity",
+      "image": "https://example.com/razer-blade-stealth-13.jpg",
+      "longDescription": "The Razer Blade Stealth 13 is a versatile ultrabook that's great for both gaming and productivity. It has an Intel Core i7 processor, NVIDIA GeForce GTX 1650 Ti graphics, and 16GB of RAM. The 13.3-inch display has a refresh rate of 120Hz for smooth gameplay.",
+      "type": ["ultrabook", "gaming"]
+    },
+    {
+      "id": 14,
+      "name": "HP Chromebook x360 14c",
+      "price": 549,
+      "description": "14-inch 2-in-1 Chromebook with stylus support",
+      "image": "https://example.com/hp-chromebook-x360-14c.jpg",
+      "longDescription": "The HP Chromebook x360 14c is a versatile 2-in-1 Chromebook with a 14-inch touchscreen display that can be flipped 360 degrees. It comes with a stylus for taking notes and drawing, and has an Intel Core i3 processor, 8GB of RAM, and a 64GB SSD.",
+      "type": ["chromebook", "2in1"]
+    },
+    {
+      "id": 15,
+      "name": "Lenovo Legion 5",
+      "price": 999,
+      "description": "15.6-inch gaming laptop with AMD Ryzen 5 processor",
+      "image": "https://example.com/lenovo-legion-5.jpg",
+      "longDescription": "The Lenovo Legion 5 is a powerful gaming laptop with an AMD Ryzen 5 processor, NVIDIA GeForce GTX 1650 graphics, and 8GB of RAM. The 15.6-inch display has a refresh rate of 120Hz for smooth gameplay.",
+      "type": ["gaming"]
+    },
+    {
+      "id": 16,
+      "name": "Dell Inspiron 15 7000",
+      "price": 849,
+      "description": "15.6-inch ultrabook with NVIDIA GeForce MX330 graphics",
+      "image": "https://example.com/dell-inspiron-15-7000.jpg",
+      "longDescription": "The Dell Inspiron 15 7000 is a powerful ultrabook with an Intel Core i5 processor, NVIDIA GeForce MX330 graphics, and 8GB of RAM. The 15.6-inch display has a resolution of 1920x1080 and covers 45% of the NTSC color gamut.",
+      "type": ["ultrabook"]
+    },
+    {
+      "id": 17,
+      "name": "Asus Chromebook Flip C434",
+      "price": 599,
+      "description": "14-inch 2-in-1 Chromebook with Intel Core m3 processor",
+      "image": "https://example.com/asus-chromebook-flip-c434.jpg",
+      "longDescription": "The Asus Chromebook Flip C434 is a versatile 2-in-1 Chromebook with a 14-inch touchscreen display that can be flipped 360 degrees. It has an Intel Core m3 processor, 4GB of RAM, and a 64GB eMMC.",
+      "type": ["chromebook", "2in1"]
+    },
+    {
+      "id": 18,
+      "name": "HP Spectre x360 14",
+      "price": 1399,
+      "description": "14-inch 2-in-1 laptop with OLED display",
+      "image": "https://example.com/hp-spectre-x360-14.jpg",
+      "longDescription": "The HP Spectre x360 14 is a premium 2-in-1 laptop with a 14-inch OLED touchscreen display that has a resolution of 1920x1080. It has an 11th-gen Intel Core i7 processor, 16GB of RAM, and a 1TB SSD.",
+      "type": ["2in1"]
+    },
+    {
+      "id": 19,
+      "name": "Acer Nitro 5",
+      "price": 849,
+      "description": "15.6-inch gaming laptop with NVIDIA GeForce GTX 1650 graphics",
+      "image": "https://example.com/acer-nitro-5.jpg",
+      "longDescription": "The Acer Nitro 5 is a budget-friendly gaming laptop with an Intel Core i5 processor, NVIDIA GeForce GTX 1650 graphics, and 8GB of RAM. The 15.6-inch display has a refresh rate of 60Hz for smooth gameplay.",
+      "type": ["gaming"]
+    },
+    {
+      "id": 20,
+      "name": "Lenovo ThinkPad X13",
+      "price": 1299,
+      "description": "13.3-inch business laptop with AMD Ryzen 5 Pro processor",
+      "image": "https://example.com/lenovo-thinkpad-x13.jpg",
+      "longDescription": "The Lenovo ThinkPad X13 is a lightweight and durable business laptop with an AMD Ryzen 5 Pro processor, 16GB of RAM, and a 512GB SSD. The 13.3-inch display has a resolution of 1920x1080 and covers 72% of the NTSC color gamut.",
+      "type": ["business"]
+    },
+    {
+      "id": 21,
+      "name": "Dell G5 15 SE",
+      "price": 1199,
+      "description": "15.6-inch gaming laptop with AMD Ryzen 7 processor",
+      "image": "https://example.com/dell-g5-15-se.jpg",
+      "longDescription": "The Dell G5 15 SE is a powerful gaming laptop with an AMD Ryzen 7 processor, AMD Radeon RX 5600M graphics, and 16GB of RAM. The 15.6-inch display has a refresh rate of 144Hz for smooth gameplay.",
+      "type": ["gaming"]
+    },
+    {
+      "id": 22,
+      "name": "Asus ZenBook Flip S",
+      "price": 1399,
+      "description": "13.3-inch 2-in-1 laptop with 4K OLED display",
+      "image": "https://example.com/asus-zenbook-flip-s.jpg",
+      "longDescription": "The Asus ZenBook Flip S is a premium 2-in-1 laptop with a 13.3-inch 4K OLED touchscreen display that has a resolution of 3840x2160. It has an 11th-gen Intel Core i7 processor, 16GB of RAM, and a 1TB SSD.",
+      "type": ["ultrabook", "2in1"]
+    },
+    {
+      "id": 23,
+      "name": "Microsoft Surface Laptop 4",
+      "price": 999,
+      "description": "13.5-inch ultrabook with touchscreen display",
+      "image": "https://example.com/microsoft-surface-laptop-4.jpg",
+      "longDescription": "The Microsoft Surface Laptop 4 is a premium ultrabook with a 13.5-inch touchscreen display that has a resolution of 2256x1504. It has an 11th-gen Intel Core i5 processor, 8GB of RAM, and a 256GB SSD.",
+      "type": ["ultrabook"]
+    },
+    {
+      "id": 24,
+      "name": "Lenovo IdeaPad Flex 5",
+      "price": 599,
+      "description": "14-inch 2-in-1 laptop with AMD Ryzen 3 processor",
+      "image": "https://example.com/lenovo-ideapad-flex-5.jpg",
+      "longDescription": "The Lenovo IdeaPad Flex 5 is an affordable 2-in-1 laptop with a 14-inch touchscreen display that can be flipped 360 degrees. It has an AMD Ryzen 3 processor, 4GB of RAM, and a 128GB SSD.",
+      "type": ["2in1"]
+    },
+    {
+      "id": 25,
+      "name": "HP Pavilion Gaming 15",
+      "price": 899,
+      "description": "15.6-inch gaming laptop with NVIDIA GeForce GTX 1650 graphics",
+      "image": "https://example.com/hp-pavilion-gaming-15.jpg",
+      "longDescription": "The HP Pavilion Gaming 15 is a budget-friendly gaming laptop with an Intel Core i5 processor, NVIDIA GeForce GTX 1650 graphics, and 8GB of RAM. The 15.6-inch display has a refresh rate of 60Hz for smooth gameplay.",
+      "type": ["gaming"]
+    },
+    {
+      "id": 26,
+      "name": "Acer Swift 3",
+      "price": 699,
+      "description": "14-inch ultrabook with AMD Ryzen 7 processor",
+      "image": "https://example.com/acer-swift-3.jpg",
+      "longDescription": "The Acer Swift 3 is a lightweight and affordable ultrabook with an AMD Ryzen 7 processor, 8GB of RAM, and a 512GB SSD. The 14-inch display has a resolution of 1920x1080 and covers 72% of the NTSC color gamut.",
+      "type": ["ultrabook"]
+    },
+    {
+      "id": 27,
+      "name": "Asus TUF Gaming A15",
+      "price": 1199,
+      "description": "15.6-inch gaming laptop with AMD Ryzen 7 processor",
+      "image": "https://example.com/asus-tuf-gaming-a15.jpg",
+      "longDescription": "The Asus TUF Gaming A15 is a powerful gaming laptop with an AMD Ryzen 7 processor, NVIDIA GeForce RTX 3070 graphics, and 16GB of RAM. The 15.6-inch display has a refresh rate of 144Hz for smooth gameplay.",
+      "type": ["gaming"]
+    },
+    {
+      "id": 28,
+      "name": "Dell XPS 13",
+      "price": 1399,
+      "description": "13.4-inch ultrabook with touchscreen display",
+      "image": "https://example.com/dell-xps-13.jpg",
+      "longDescription": "The Dell XPS 13 is a premium ultrabook with a 13.4-inch touchscreen display that has a resolution of 3840x2400. It has an 11th-gen Intel Core i7 processor, 16GB of RAM, and a 512GB SSD.",
+      "type": ["ultrabook"]
+    },
+    {
+      "id": 29,
+      "name": "Lenovo IdeaPad 5",
+      "price": 799,
+      "description": "14-inch laptop with AMD Ryzen 5 processor",
+      "image": "https://example.com/lenovo-ideapad-5.jpg",
+      "longDescription": "The Lenovo IdeaPad 5 is an affordable laptop with an AMD Ryzen 5 processor, 8GB of RAM, and a 256GB SSD. The 14-inch display has a resolution of 1920x1080 and covers 45% of the NTSC color gamut.",
+      "type": ["business"]
+    },
+    {
+      "id": 30,
+      "name": "HP Envy x360",
+      "price": 899,
+      "description": "15.6-inch 2-in-1 laptop with AMD Ryzen 5 processor",
+      "image": "https://example.com/hp-envy-x360.jpg",
+      "longDescription": "The HP Envy x360 is a versatile 2-in-1 laptop with a 15.6-inch touchscreen display that has a resolution of 1920x1080. It has an AMD Ryzen 5 processor, 8GB of RAM, and a 256GB SSD.",
+      "type": ["2in1"]
+    },
+    {
+      "id": 31,
+      "name": "Acer Aspire 5",
+      "price": 549,
+      "description": "15.6-inch laptop with AMD Ryzen 3 processor",
+      "image": "https://example.com/acer-aspire-5.jpg",
+      "longDescription": "The Acer Aspire 5 is an affordable laptop with an AMD Ryzen 3 processor, 4GB of RAM, and a 128GB SSD. The 15.6-inch display has a resolution of 1920x1080 and covers 45% of the NTSC color gamut.",
+      "type": ["business"]
+    },
+    {
+      "id": 32,
+      "name": "Lenovo Yoga 7i",
+      "price": 1099,
+      "description": "14-inch 2-in-1 laptop with Intel Core i7 processor",
+      "image": "https://example.com/lenovo-yoga-7i.jpg",
+      "longDescription": "The Lenovo Yoga 7i is a versatile 2-in-1 laptop with a 14-inch touchscreen display that has a resolution of 1920x1080. It has an 11th-gen Intel Core i7 processor, 16GB of RAM, and a 512GB SSD.",
+      "type": ["ultrabook", "2in1"]
+    },
+    {
+      "id": 33,
+      "name": "Asus ExpertBook B9",
+      "price": 1499,
+      "description": "14-inch business laptop with Intel Core i7 processor",
+      "image": "https://example.com/asus-expertbook-b9.jpg",
+      "longDescription": "The Asus ExpertBook B9 is a lightweight and durable business laptop with an 11th-gen Intel Core i7 processor, 16GB of RAM, and a 1TB SSD. The 14-inch display has a resolution of 1920x1080 and covers 100% of the sRGB color gamut.",
+      "type": ["business"]
+    },
+    {
+      "id": 34,
+      "name": "HP Elite Dragonfly",
+      "price": 1899,
+      "description": "13.3-inch business laptop with 5G connectivity",
+      "image": "https://example.com/hp-elite-dragonfly.jpg",
+      "longDescription": "The HP Elite Dragonfly is a premium business laptop with 5G connectivity, an 11th-gen Intel Core i7 processor, 16GB of RAM, and a 1TB SSD. The 13.3-inch display has a resolution of 1920x1080 and covers 72% of the NTSC color gamut.",
+      "type": ["business"]
+    },
+    {
+      "id": 35,
+      "name": "Dell Inspiron 14 5000",
+      "price": 749,
+      "description": "14-inch laptop with Intel Core i5 processor",
+      "image": "https://example.com/dell-inspiron-14-5000.jpg",
+      "longDescription": "The Dell Inspiron 14 5000 is an affordable laptop with an 11th-gen Intel Core i5 processor, 8GB of RAM, and a 512GB SSD. The 14-inch display has a resolution of 1920x1080 and covers 45% of the NTSC color gamut.",
+      "type": ["business"]
+    },
+    {
+      "id": 36,
+      "name": "Acer Chromebook Spin 713",
+      "price": 629,
+      "description": "13.5-inch 2-in-1 Chromebook with Intel Core i5 processor",
+      "image": "https://example.com/acer-chromebook-spin-713.jpg",
+      "longDescription": "The Acer Chromebook Spin 713 is a versatile 2-in-1 Chromebook with a 13.5-inch touchscreen display that has a resolution of 2256x1504. It has an 11th-gen Intel Core i5 processor, 8GB of RAM, and a 256GB SSD.",
+      "type": [
+        "chromebook",
+        "2in1"
+      ]
+    },
+    {
+      "id": 37,
+      "name": "Razer Blade Stealth 13",
+      "price": 1599,
+      "description": "13.3-inch gaming ultrabook with NVIDIA GeForce GTX 1650 Ti graphics",
+      "image": "https://example.com/razer-blade-stealth-13.jpg",
+      "longDescription": "The Razer Blade Stealth 13 is a gaming ultrabook with a 13.3-inch display that has a resolution of 1920x1080 and covers 100% of the sRGB color gamut. It has an Intel Core i7 processor, NVIDIA GeForce GTX 1650 Ti graphics, and 16GB of RAM.",
+      "type": ["gaming", "ultrabook"]
+    },
+    {
+      "id": 38,
+      "name": "HP Chromebook x360 14c",
+      "price": 649,
+      "description": "14-inch 2-in-1 Chromebook with Intel Core i3 processor",
+      "image": "https://example.com/hp-chromebook-x360-14c.jpg",
+      "longDescription": "The HP Chromebook x360 14c is a versatile 2-in-1 Chromebook with a 14-inch touchscreen display that has a resolution of 1920x1080. It has an 10th-gen Intel Core i3 processor, 8GB of RAM, and a 128GB eMMC.",
+      "type": ["chromebook", "2in1"]
+    },
+    {
+      "id": 39,
+      "name": "Asus VivoBook S14",
+      "price": 999,
+      "description": "14-inch ultrabook with Intel Core i7 processor",
+      "image": "https://example.com/asus-vivobook-s14.jpg",
+      "longDescription": "The Asus VivoBook S14 is a stylish and lightweight ultrabook with an 11th-gen Intel Core i7 processor, 16GB of RAM, and a 512GB SSD. The 14-inch display has a resolution of 1920x1080 and covers 100% of the sRGB color gamut.",
+      "type": ["ultrabook"]
+    },
+    {
+      "id": 40,
+      "name": "Lenovo Legion 5",
+      "price": 1099,
+      "description": "15.6-inch gaming laptop with NVIDIA GeForce GTX 1650 graphics",
+      "image": "https://example.com/lenovo-legion-5.jpg",
+      "longDescription": "The Lenovo Legion 5 is a powerful gaming laptop with an AMD Ryzen 5 processor, NVIDIA GeForce GTX 1650 graphics, and 8GB of RAM. The 15.6-inch display has a refresh rate of 120Hz for smooth gameplay.",
+      "type": ["gaming"]
+    },
+    {
+      "id": 42,
+      "name": "Acer Nitro 5",
+      "price": 799,
+      "description": "15.6-inch gaming laptop with AMD Ryzen 5 processor",
+      "image": "https://example.com/acer-nitro-5.jpg",
+      "longDescription": "The Acer Nitro 5 is a budget-friendly gaming laptop with an AMD Ryzen 5 processor, NVIDIA GeForce GTX 1650 graphics, and 8GB of RAM. The 15.6-inch display has a refresh rate of 60Hz for smooth gameplay.",
+      "type": ["gaming"]
+    },
+    {
+      "id": 43,
+      "name": "HP Spectre x360",
+      "price": 1399,
+      "description": "13.3-inch 2-in-1 laptop with OLED display",
+      "image": "https://example.com/hp-spectre-x360.jpg",
+      "longDescription": "The HP Spectre x360 is a premium 2-in-1 laptop with a 13.3-inch OLED touchscreen display that has a resolution of 3840x2160. It has an 11th-gen Intel Core i7 processor, 16GB of RAM, and a 1TB SSD.",
+      "type": ["ultrabook", "2in1"]
+    },
+    {
+      "id": 44,
+      "name": "Asus Chromebook Flip C434",
+      "price": 599,
+      "description": "14-inch 2-in-1 Chromebook with Intel Core m3 processor",
+      "image": "https://example.com/asus-chromebook-flip-c434.jpg",
+      "longDescription": "The Asus Chromebook Flip C434 is a versatile 2-in-1 Chromebook with a 14-inch touchscreen display that has a resolution of 1920x1080. It has an 8th-gen Intel Core m3 processor, 4GB of RAM, and a 64GB eMMC.",
+      "type": ["chromebook", "2in1"]
+    },
+    {
+      "id": 45,
+      "name": "Microsoft Surface Pro 7",
+      "price": 799,
+      "description": "12.3-inch 2-in-1 tablet with Intel Core i3 processor",
+      "image": "https://example.com/microsoft-surface-pro-7.jpg",
+      "longDescription": "The Microsoft Surface Pro 7 is a versatile 2-in-1 tablet with a 12.3-inch touchscreen display that has a resolution of 2736x1824. It has an 10th-gen Intel Core i3 processor, 4GB of RAM, and a 128GB SSD.",
+      "type": ["2in1"]
+    },
+    {
+      "id": 46,
+      "name": "Lenovo ThinkPad X1 Carbon",
+      "price": 1699,
+      "description": "14-inch business laptop with Intel Core i7 processor",
+      "image": "https://example.com/lenovo-thinkpad-x1-carbon.jpg",
+      "longDescription": "The Lenovo ThinkPad X1 Carbon is a premium business laptop with an 11th-gen Intel Core i7 processor, 16GB of RAM, and a 1TB SSD. The 14-inch display has a resolution of 1920x1080 and covers 100% of the sRGB color gamut.",
+      "type": ["business"]
+    }
+  ],
+  "comments": [
+    {
+      "id": "1",
+      "text": "some comment",
+      "laptopId": "1",
+      "userId": "1"
+    },
+    {
+      "id": "2",
+      "text": "some comment 2",
+      "laptopId": "1",
+      "userId": "1"
+    },
+    {
+      "id": "3",
+      "text": "some comment 3",
+      "laptopId": "1",
+      "userId": "2"
+    },
+    {
+      "id": "4",
+      "text": "some comment 4",
+      "laptopId": "2",
+      "userId": "2"
+    }
+  ],
+  "users": [
+    {
+      "id": "1",
+      "username": "admin",
+      "password": "123",
+      "role": "ADMIN",
+      "avatar": "https://marketplace.canva.com/EAFEits4-uw/1/0/1600w/canva-boy-cartoon-gamer-animated-twitch-profile-photo-oEqs2yqaL8s.jpg"
+    },
+    {
+      "id": "2",
+      "username": "user",
+      "password": "123",
+      "role": "USER",
+      "avatar": "https://www.springboard.com/blog/wp-content/uploads/2022/06/what-does-a-coder-do-2022-career-guide-1.jpg"
+    }
+  ]
+}
