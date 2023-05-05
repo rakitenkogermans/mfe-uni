@@ -1,0 +1,30 @@
+{
+    "compilerOptions": {
+        "outDir": "./dist/",
+        "noImplicitAny": true,
+        "strictNullChecks": true,
+        "module": "ESNext",
+        "target": "es5",
+        "jsx": "react-jsx",
+        "allowJs": true,
+        "strict": true,
+        "moduleResolution": "node",
+        "resolveJsonModule": true,
+        "baseUrl": ".",
+        "paths": {
+            "*": ["./src/*"]
+        },
+        "esModuleInterop": true,
+        "allowSyntheticDefaultImports": true
+    },
+    "ts-node": {
+        "compilerOptions": {
+            "module": "CommonJS"
+        }
+    },
+    "include": [
+        "src",
+        "config",
+        "./webpack.config.ts",
+    ]
+}
