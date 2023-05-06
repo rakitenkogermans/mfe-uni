@@ -1,0 +1,24 @@
+{
+  "name": "mfe-uni",
+  "repository": "git@github.com:rakitenkogermans/mfe-uni.git",
+  "author": "rakitenkogermans <rakitenko.germans@gmail.com>",
+  "license": "MIT",
+  "private": true,
+  "workspaces": {
+    "packages": [
+      "header",
+      "product",
+      "host"
+    ]
+  },
+  "scripts": {
+    "start": "lerna run --parallel start",
+    "build": "lerna run build",
+    "serve": "lerna run --parallel serve",
+    "clean": "lerna run --parallel clean",
+    "prepare": "lerna run yarn"
+  },
+  "devDependencies": {
+    "lerna": "^6.6.2"
+  }
+}
