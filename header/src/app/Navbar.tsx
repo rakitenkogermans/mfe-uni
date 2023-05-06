@@ -1,3 +1,4 @@
+import './styles/index.scss'
 import { FaShoppingCart, FaUser } from 'react-icons/fa';
 
 interface NavbarProps {
@@ -39,4 +40,4 @@ const Navbar = ({ className }: NavbarProps) => {
     );
 };
 
-export { Navbar };
+export default Navbar;

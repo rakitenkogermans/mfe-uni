@@ -1,8 +1,8 @@
 import { createRoot } from 'react-dom/client';
 import "./app/styles/reset.scss";
 import "./app/styles/index.scss";
-import './app/types/host-decl.d';
-import App from 'host/App';
+// import './app/types/host-decl.d';
+import App from './app/App';
 
 const container = document.getElementById('root') as HTMLDivElement;
 
