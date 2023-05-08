@@ -31,7 +31,7 @@ const Navbar = ({ className }: NavbarProps) => {
                     <button className="relative">
                         <FaShoppingCart className="h-6 w-6" />
                         <span className="absolute top-4 left-4 text-xs bg-red-500 text-white rounded-full h-5 w-5 flex items-center justify-center">
-                            1
+                            +9
                         </span>
                     </button>
                 </div>

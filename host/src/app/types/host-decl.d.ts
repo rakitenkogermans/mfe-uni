@@ -6,3 +6,4 @@
 
 declare module 'header/Navbar';
 declare module 'product/ProductList';
+declare module 'store/Store';

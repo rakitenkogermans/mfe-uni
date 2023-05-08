@@ -1,5 +1,4 @@
 import './styles/index.scss'
-import { FaShoppingCart, FaUser } from 'react-icons/fa';
 
 export interface Product {
     id: number;
@@ -16,9 +15,9 @@ interface ProductCardProps {
 }
 
 const ProductCard = ({ className, product }: ProductCardProps) => {
-    const { name, price, description, types, image } = product;
+    const { name, price, description, types, image, id } = product;
     return (
-        <div className="bg-white shadow-md rounded-md p-4">
+        <a href={`/product/${id}`} className="block bg-white shadow-md rounded-md p-4 hover:shadow-lg transform hover:-translate-y-1 transition-all duration-200">
             <img src={image} alt={name} className="w-full h-48 object-cover rounded-md mb-4" />
             <div>
                 <h3 className="text-xl font-bold text-blue-600">{name}</h3>
@@ -35,7 +34,7 @@ const ProductCard = ({ className, product }: ProductCardProps) => {
                     Add to Cart
                 </button>
             </div>
-        </div>
+        </a>
     );
 };
 
