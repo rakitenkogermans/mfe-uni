@@ -1,13 +1,14 @@
 import './styles/index.scss'
 import { FaShoppingCart, FaUser } from 'react-icons/fa';
+import {Link} from "react-router-dom";
 
 const Navbar = ({ className }) => {
     return (
         <nav className="bg-gray-800 text-white p-4 drop-shadow-xl rounded-md">
             <div className="container mx-auto flex items-center justify-between">
-                <button className="flex items-center">
+                <Link to='/' className="flex items-center">
                     <span className="text-xl font-semibold">MFE-ESHOP</span>
-                </button>
+                </Link>
 
                 <div className="relative">
                     <input
