@@ -1,10 +1,23 @@
 import './styles/index.scss'
 import {memo} from "react";
+import {useNavigate} from "react-router-dom";
 
-const ProductCard = memo(({ className, product }) => {
+const ProductCard = memo(({ product }) => {
     const { name, price, description, types, image, id } = product;
+    const navigate = useNavigate();
+
+    const navigateToProductDetails = () => {
+        navigate(`/product/${id}`);
+    };
+
+
+    const addToCart = (event) => {
+        event.stopPropagation();
+        console.log(`Added ${name} to the cart`);
+    };
+
     return (
-        <a href={`/product/${id}`} className="block bg-white shadow-md rounded-md p-4 hover:shadow-lg transform hover:-translate-y-1 transition-all duration-200">
+        <section onClick={navigateToProductDetails} className="cursor-pointer block bg-white shadow-md rounded-md p-4 hover:shadow-lg transform hover:-translate-y-1 transition-all duration-200">
             <img src={image} alt={name} className="w-full h-48 object-cover rounded-md mb-4" />
             <div>
                 <h3 className="text-xl font-bold text-blue-600">{name}</h3>
@@ -17,11 +30,11 @@ const ProductCard = memo(({ className, product }) => {
                         </li>
                     ))}
                 </ul>
-                <button className="bg-blue-500 text-white py-2 px-4 mt-4 rounded-md hover:bg-blue-600 transition-colors duration-200 focus:outline-none">
+                <button onClick={addToCart} className="bg-blue-500 text-white py-2 px-4 mt-4 rounded-md hover:bg-blue-600 transition-colors duration-200 focus:outline-none">
                     Add to Cart
                 </button>
             </div>
-        </a>
+        </section>
     );
 });
 

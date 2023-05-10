@@ -1,16 +1,25 @@
 import { Footer } from './Footer';
 import Navbar from "header/Navbar";
-import ProductList from "product/ProductList";
+import {HomePage} from "./HomePage";
+import {createBrowserRouter, createRoutesFromElements, Outlet, Route, RouterProvider} from "react-router-dom";
+import {MainLayout} from "./MainLayout";
+import {ProductDetailsPage} from "product/ProductDetailsPage";
+
+
+const router = createBrowserRouter(
+    createRoutesFromElements(
+        <Route element={
+            <MainLayout/>
+        }>
+            <Route path="/" element={<HomePage />} />
+            <Route path="/product/:id" element={<ProductDetailsPage />} />
+        </Route>
+    )
+);
 
 const App = () => {
     return (
-        <div className="p-4 flex flex-col gap-y-12 min-h-screen">
-            <Navbar />
-            <main className="container self-center flex-grow">
-                <ProductList />
-            </main>
-            <Footer />
-        </div>
+        <RouterProvider router={router} />
     );
 };
 

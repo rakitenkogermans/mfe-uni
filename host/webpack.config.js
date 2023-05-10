@@ -14,6 +14,7 @@ module.exports = (env, argv) => {
     devServer: {
       port: env.port,
       open: true,
+      historyApiFallback: true,
       headers: {
         "Access-Control-Allow-Origin": "*",
       },

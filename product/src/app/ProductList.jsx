@@ -37,6 +37,9 @@ const ProductList = memo(({ className }) => {
                         <ProductCardSkeleton />
                         <ProductCardSkeleton />
                         <ProductCardSkeleton />
+                        <ProductCardSkeleton />
+                        <ProductCardSkeleton />
+                        <ProductCardSkeleton />
                     </>
                 )}
             </section>
@@ -48,4 +51,4 @@ const ProductList = memo(({ className }) => {
     );
 });
 
-export default ProductList;
+export { ProductList };

@@ -1,5 +1,5 @@
 import { createRoot } from 'react-dom/client';
-// import "./app/styles/reset.scss";
+import "./app/styles/reset.scss";
 import "./app/styles/index.scss";
 import App from './app/App';
 import { StoreProvider } from 'store/Store';

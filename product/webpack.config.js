@@ -14,6 +14,7 @@ module.exports = (env, argv) => {
     devServer: {
       port: env.port,
       open: true,
+      historyApiFallback: true,
       headers: {
         "Access-Control-Allow-Origin": "*",
       },
@@ -53,7 +54,8 @@ module.exports = (env, argv) => {
           store: 'store@http://localhost:3003/remoteEntry.js',
         },
         exposes: {
-          './ProductList': "./src/app/ProductList.jsx"
+          './ProductList': "./src/app/ProductList.jsx",
+          './ProductDetailsPage': "./src/app/ProductDetailsPage.jsx"
         },
         shared: {
           ...deps,

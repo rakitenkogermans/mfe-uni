@@ -1,8 +1,7 @@
-import {useEffect, useRef} from 'react';
+import {useEffect} from 'react';
 
 export const useInfiniteScroll = (props) => {
     const { callback, triggerRef } = props;
-    const hasIntersectedOnce = useRef(false);
 
     useEffect(() => {
         const triggerElement = triggerRef.current;
@@ -17,11 +16,7 @@ export const useInfiniteScroll = (props) => {
 
             observer = new IntersectionObserver(([entry]) => {
                 if (entry.isIntersecting) {
-                    if (hasIntersectedOnce.current) {
-                        callback();
-                    } else {
-                        hasIntersectedOnce.current = true;
-                    }
+                    callback();
                 }
             }, options);
 

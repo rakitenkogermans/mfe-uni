@@ -40,6 +40,16 @@ const productListReducer = (state, action) => {
         };
     }
 
+    if (action.type === ProductListActionTypes.PRODUCT_LIST_ERROR) {
+        return {
+            ...state,
+            isLoading: false,
+            showAlert: true,
+            alertType: 'danger',
+            alertText: action.payload.alertText,
+        };
+    }
+
     if (action.type === ProductListActionTypes.PRODUCT_LIST_SET_PAGE) {
         return {
             ...state,
