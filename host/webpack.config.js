@@ -1,14 +1,16 @@
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const webpack = require("webpack");
 const { ModuleFederationPlugin } = webpack.container;
-const ForkTsCheckerWebpackPlugin = require("fork-ts-checker-webpack-plugin");
 const deps = require("./package.json").dependencies;
 
 module.exports = (env, argv) => {
   const isProduction = argv.mode === "production";
   return {
-    entry: "./src/index.tsx",
+    entry: "./src/index.js",
     mode: process.env.NODE_ENV || "development",
+    output: {
+      publicPath: "http://localhost:3000/",
+    },
     devServer: {
       port: env.port,
       open: true,
@@ -17,7 +19,7 @@ module.exports = (env, argv) => {
       },
     },
     resolve: {
-      extensions: [".ts", ".tsx", ".js"],
+      extensions: [".tsx", ".ts", ".jsx", ".js", ".json"],
     },
     module: {
       rules: [
@@ -37,7 +39,6 @@ module.exports = (env, argv) => {
                 "@babel/preset-env",
                 { targets: { browsers: "last 2 versions" } },
               ],
-              "@babel/preset-typescript",
               ["@babel/preset-react", {"runtime": "automatic"}],
             ],
           },
@@ -55,20 +56,24 @@ module.exports = (env, argv) => {
           store: 'store@http://localhost:3003/remoteEntry.js',
         },
         exposes: {
-          "./App": "./src/app/App.tsx",
-          "./Footer": "./src/app/Footer.tsx",
+          "./App": "./src/app/App.jsx",
+          "./Footer": "./src/app/Footer.jsx",
         },
         shared: {
           ...deps,
-          react: { singleton: true, eager: true, requiredVersion: deps.react },
+          react: {
+            singleton: true,
+            // eager: true,
+            requiredVersion: deps.react
+          },
           "react-dom": {
             singleton: true,
-            eager: true,
+            // eager: true,
             requiredVersion: deps["react-dom"],
           },
           "react-router-dom": {
             singleton: true,
-            eager: true,
+            // eager: true,
             requiredVersion: deps["react-router-dom"],
           },
         },
@@ -76,7 +81,6 @@ module.exports = (env, argv) => {
       new HtmlWebpackPlugin({
         template: "./public/index.html",
       }),
-      new ForkTsCheckerWebpackPlugin(),
     ],
   };
 };

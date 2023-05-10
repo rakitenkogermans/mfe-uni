@@ -1,20 +1,7 @@
 import './styles/index.scss'
+import {memo} from "react";
 
-export interface Product {
-    id: number;
-    name: string;
-    price: number;
-    description: string;
-    types: string[];
-    image: string;
-}
-
-interface ProductCardProps {
-    className?: string;
-    product: Product;
-}
-
-const ProductCard = ({ className, product }: ProductCardProps) => {
+const ProductCard = memo(({ className, product }) => {
     const { name, price, description, types, image, id } = product;
     return (
         <a href={`/product/${id}`} className="block bg-white shadow-md rounded-md p-4 hover:shadow-lg transform hover:-translate-y-1 transition-all duration-200">
@@ -36,6 +23,6 @@ const ProductCard = ({ className, product }: ProductCardProps) => {
             </div>
         </a>
     );
-};
+});
 
-export default ProductCard;
+export { ProductCard };

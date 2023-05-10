@@ -1,9 +1,9 @@
-import { type FC } from 'react';
+import Navbar from "./Navbar";
 
-const App: FC = () => {
+const App = () => {
     return (
         <div className="p-4 flex flex-col min-h-screen">
-            Store
+            <Navbar />
         </div>
     );
 };

@@ -1,30 +1,12 @@
-import {createContext, FC, ReactNode, useContext, useEffect, useReducer} from 'react';
-import {Product, ProductListState, ProductSortField, ProductTypes, StateType} from "../types/types";
+import {createContext, useCallback, useContext, useReducer} from 'react';
 import {productListReducer} from "./reducers/productList";
 import {ProductListActionTypes} from "./actions/productList";
 import {AxiosError} from "axios";
 import {LOCAL_STORAGE_USER_KEY} from "../../constants/localstorage";
-import axios from "axios";
 import {$api} from "../../api/api";
+import {ProductSortField, ProductTypes} from "../types/constants";
 
-// const $api = axios.create({
-//     baseURL: __API__,
-// });
-//
-// $api.interceptors.request.use(
-//     (config) => {
-//         if (config.headers) {
-//             const token = localStorage.getItem(LOCAL_STORAGE_USER_KEY) ?? '';
-//             config.headers.authorization = token;
-//         }
-//
-//         return config;
-//     },
-//
-//     async (error) => await Promise.reject(error),
-// );
-
-const productListInitialState: ProductListState = {
+const productListInitialState = {
     hasMore: false,
     limit: 9,
     order: 'asc',
@@ -41,28 +23,25 @@ const productListInitialState: ProductListState = {
     products: []
 };
 
-const initialState: StateType = {
+const initialState = {
     productList: productListInitialState,
 
     fetchProductsList: async function () {},
+    fetchNextProductsList: async function () {},
 }
 
-const Store = createContext<StateType>(initialState);
+const Store = createContext(initialState);
 
-const StoreProvider: FC<{ children: ReactNode }> = ({ children }) => {
+const StoreProvider = ({ children }) => {
     const [productListState, productListDispatch] = useReducer(productListReducer, productListInitialState);
 
-    useEffect(() => {
-        fetchProductsList();
-    }, []);
-
-    const fetchProductsList = async () => {
+    const fetchProductsList = useCallback(async () => {
         const { search, order, sort, page, type, limit } = productListState;
 
         productListDispatch({ type: ProductListActionTypes.PRODUCT_LIST_BEGIN });
 
         try {
-            const { data } = await $api.get<Product[]>('/laptops', {
+            const { data } = await $api.get('/laptops', {
                 params: {
                     _limit: limit,
                     _page: page,
@@ -72,9 +51,15 @@ const StoreProvider: FC<{ children: ReactNode }> = ({ children }) => {
                     types: type === ProductTypes.ALL ? undefined : type,
                 },
             });
+
             productListDispatch({
                 type: ProductListActionTypes.PRODUCT_LIST_SUCCESS,
                 payload: data,
+            });
+
+            productListDispatch({
+                type: ProductListActionTypes.PRODUCT_LIST_SET_PAGE,
+                payload: productListState.page + 1
             });
         } catch (err) {
             if (err instanceof AxiosError) {
@@ -84,7 +69,13 @@ const StoreProvider: FC<{ children: ReactNode }> = ({ children }) => {
                 })
             }
         }
-    };
+    }, [productListState]);
+
+    const fetchNextProductsList = useCallback(async () => {
+        if (productListState.hasMore && !productListState.isLoading) {
+            fetchProductsList();
+        }
+    }, [fetchProductsList]);
 
 
     const addUserToLocalStorage = () => {
@@ -100,6 +91,7 @@ const StoreProvider: FC<{ children: ReactNode }> = ({ children }) => {
             value={{
                 productList: {...productListState},
                 fetchProductsList,
+                fetchNextProductsList
             }}
         >
             {children}

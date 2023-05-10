@@ -3,7 +3,7 @@ import "./app/styles/reset.scss";
 import "./app/styles/index.scss";
 import App from './app/App';
 
-const container = document.getElementById('root') as HTMLDivElement;
+const container = document.getElementById('root');
 
 // create a root
 const root = createRoot(container);

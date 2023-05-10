@@ -6,8 +6,11 @@ const deps = require("./package.json").dependencies;
 module.exports = (env, argv) => {
   const isProduction = argv.mode === "production";
   return {
-    entry: "./src/index.tsx",
+    entry: "./src/index.js",
     mode: "development",
+    output: {
+      publicPath: "http://localhost:3002/",
+    },
     devServer: {
       port: env.port,
       open: true,
@@ -16,7 +19,7 @@ module.exports = (env, argv) => {
       },
     },
     resolve: {
-      extensions: [".ts", ".tsx", ".js"],
+      extensions: [".tsx", ".ts", ".jsx", ".js", ".json"],
     },
     module: {
       rules: [
@@ -26,8 +29,19 @@ module.exports = (env, argv) => {
         },
         {
           test: /\.(js|jsx|tsx|ts)$/,
-          loader: "ts-loader",
+          loader: "babel-loader",
           exclude: /node_modules/,
+          options: {
+            cacheDirectory: true,
+            babelrc: false,
+            presets: [
+              [
+                "@babel/preset-env",
+                { targets: { browsers: "last 2 versions" } },
+              ],
+              ["@babel/preset-react", {"runtime": "automatic"}],
+            ],
+          },
         },
       ],
     },
@@ -35,20 +49,27 @@ module.exports = (env, argv) => {
       new ModuleFederationPlugin({
         name: "product",
         filename: "remoteEntry.js",
+        remotes: {
+          store: 'store@http://localhost:3003/remoteEntry.js',
+        },
         exposes: {
-          './ProductList': "./src/app/ProductList"
+          './ProductList': "./src/app/ProductList.jsx"
         },
         shared: {
           ...deps,
-          react: {singleton: true, eager: true, requiredVersion: deps.react},
+          react: {
+            singleton: true,
+            // eager: true,
+            requiredVersion: deps.react
+          },
           "react-dom": {
             singleton: true,
-            eager: true,
+            // eager: true,
             requiredVersion: deps["react-dom"],
           },
           "react-router-dom": {
             singleton: true,
-            eager: true,
+            // eager: true,
             requiredVersion: deps["react-router-dom"],
           },
         },

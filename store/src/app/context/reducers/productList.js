@@ -1,8 +1,6 @@
-import { Reducer } from 'react';
-import { Product, ProductListState } from "../../types/types";
-import { ProductListAction, ProductListActionTypes } from "../actions/productList";
+import { ProductListActionTypes } from "../actions/productList";
 
-const productListReducer: Reducer<ProductListState, ProductListAction> = (state, action): ProductListState => {
+const productListReducer = (state, action) => {
     if (action.type === ProductListActionTypes.PRODUCT_LIST_DISPLAY_ALERT) {
         return {
             ...state,
@@ -30,14 +28,22 @@ const productListReducer: Reducer<ProductListState, ProductListAction> = (state,
     }
 
     if (action.type === ProductListActionTypes.PRODUCT_LIST_SUCCESS) {
-        let oldProducts: Product[] = [];
+        let oldProducts = [];
         if (state.products) {
             oldProducts = [...state.products];
         }
         return {
             ...state,
             isLoading: false,
+            hasMore: action.payload.length >= state.limit,
             products: [...oldProducts, ...action.payload]
+        };
+    }
+
+    if (action.type === ProductListActionTypes.PRODUCT_LIST_SET_PAGE) {
+        return {
+            ...state,
+            page: action.payload,
         };
     }
 

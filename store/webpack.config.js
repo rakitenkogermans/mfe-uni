@@ -9,8 +9,11 @@ module.exports = (env, argv) => {
   const apiUrl = env.apiUrl || 'http://localhost:8000';
 
   return {
-    entry: "./src/index.tsx",
+    entry: "./src/index.js",
     mode: "development",
+    output: {
+      publicPath: "http://localhost:3003/",
+    },
     devServer: {
       port: env.port,
       open: true,
@@ -19,7 +22,7 @@ module.exports = (env, argv) => {
       },
     },
     resolve: {
-      extensions: [".ts", ".tsx", ".js"],
+      extensions: [".tsx", ".ts", ".jsx", ".js", ".json"],
     },
     module: {
       rules: [
@@ -29,8 +32,19 @@ module.exports = (env, argv) => {
         },
         {
           test: /\.(js|jsx|tsx|ts)$/,
-          loader: "ts-loader",
+          loader: "babel-loader",
           exclude: /node_modules/,
+          options: {
+            cacheDirectory: true,
+            babelrc: false,
+            presets: [
+              [
+                "@babel/preset-env",
+                { targets: { browsers: "last 2 versions" } },
+              ],
+              ["@babel/preset-react", {"runtime": "automatic"}],
+            ],
+          },
         },
       ],
     },
@@ -42,24 +56,28 @@ module.exports = (env, argv) => {
         name: "store",
         filename: "remoteEntry.js",
         exposes: {
-          "./Store": "./src/app/context/Store.tsx",
+          "./Store": "./src/app/context/Store.jsx",
         },
         shared: {
           ...deps,
-          react: {singleton: true, eager: true, requiredVersion: deps.react},
+          react: {
+            singleton: true,
+            // eager: true,
+            requiredVersion: deps.react
+          },
           "react-dom": {
             singleton: true,
-            eager: true,
+            // eager: true,
             requiredVersion: deps["react-dom"],
           },
           "react-router-dom": {
             singleton: true,
-            eager: true,
+            // eager: true,
             requiredVersion: deps["react-router-dom"],
           },
           axios: {
             singleton: true,
-            eager: true,
+            // eager: true,
             requiredVersion: deps.axios,
           }
         },

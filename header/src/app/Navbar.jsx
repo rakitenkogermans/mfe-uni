@@ -1,11 +1,7 @@
 import './styles/index.scss'
 import { FaShoppingCart, FaUser } from 'react-icons/fa';
 
-interface NavbarProps {
-    className?: string
-}
-
-const Navbar = ({ className }: NavbarProps) => {
+const Navbar = ({ className }) => {
     return (
         <nav className="bg-gray-800 text-white p-4 drop-shadow-xl rounded-md">
             <div className="container mx-auto flex items-center justify-between">
