@@ -7,6 +7,8 @@ import {$api} from "../../api/api";
 import {ProductSortField, ProductTypes} from "../types/constants";
 import {ProductDetailsActionTypes} from "./actions/productDetails";
 import {productDetailsReducer} from "./reducers/productDetails";
+import {cartReducer} from "./reducers/cart";
+import {CartActionTypes} from "./actions/cart";
 
 const productListInitialState = {
     hasMore: false,
@@ -32,13 +34,24 @@ const productDetailsInitialState = {
     alertType: undefined,
 };
 
+const cartInitialState = {
+    cartItems: [],
+    totalQty: 0,
+    totalPrice: 0.0,
+}
+
 const initialState = {
     productList: productListInitialState,
     productDetails: productDetailsInitialState,
+    cart: cartInitialState,
 
     fetchProductsList: async function () {},
     fetchNextProductsList: async function () {},
     fetchProductById: async function () {},
+    addNewItemToCart: function () {},
+    removeItemFromCart: function () {},
+    changeItemQtyInCart: function () {},
+    resetCart: function () {},
 }
 
 const Store = createContext(initialState);
@@ -46,6 +59,7 @@ const Store = createContext(initialState);
 const StoreProvider = ({ children }) => {
     const [productListState, productListDispatch] = useReducer(productListReducer, productListInitialState);
     const [productDetailsState, productDetailsDispatch] = useReducer(productDetailsReducer, productDetailsInitialState);
+    const [cartState, cartDispatch] = useReducer(cartReducer, cartInitialState);
 
     const fetchProductsList = useCallback(async () => {
         const { search, order, sort, page, type, limit } = productListState;
@@ -87,7 +101,7 @@ const StoreProvider = ({ children }) => {
         if (productListState.hasMore && !productListState.isLoading) {
             fetchProductsList();
         }
-    }, [fetchProductsList]);
+    }, [productListState.hasMore, productListState.isLoading, fetchProductsList]);
 
     const fetchProductById = useCallback(async (id) => {
 
@@ -110,6 +124,34 @@ const StoreProvider = ({ children }) => {
         }
     }, []);
 
+    const addNewItemToCart = useCallback((product, qty) => {
+        const item = {...product, qty};
+        cartDispatch({
+            type: CartActionTypes.CART_ADD_ITEM,
+            payload: item
+        })
+    }, []);
+
+    const removeItemFromCart = useCallback((id) => {
+        cartDispatch({
+            type: CartActionTypes.CART_REMOVE_ITEM,
+            payload: id
+        })
+    }, []);
+
+    const changeItemQtyInCart = useCallback((product, qty) => {
+        const item = {...product, qty};
+        cartDispatch({
+            type: CartActionTypes.CART_CHANGE_ITEM_QTY,
+            payload: item
+        })
+    }, []);
+
+    const resetCart = useCallback(() => {
+        cartDispatch({
+            type: CartActionTypes.CART_RESET,
+        })
+    }, []);
 
     const addUserToLocalStorage = () => {
         localStorage.setItem(LOCAL_STORAGE_USER_KEY, JSON.stringify('user'));
@@ -124,9 +166,14 @@ const StoreProvider = ({ children }) => {
             value={{
                 productList: {...productListState},
                 productDetails: {...productDetailsState},
+                cart: {...cartState},
                 fetchProductsList,
                 fetchNextProductsList,
-                fetchProductById
+                fetchProductById,
+                addNewItemToCart,
+                removeItemFromCart,
+                changeItemQtyInCart,
+                resetCart,
             }}
         >
             {children}

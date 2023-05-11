@@ -1,15 +1,19 @@
-import {useEffect} from "react";
+import {useCallback, useEffect} from "react";
 import {ProductDetailsCard} from "./ProductDetailsCard";
 import { useStore } from 'store/Store';
 import {ProductDetailsSkeleton} from "./ProductDetailsSkeleton";
 
 const ProductDetails= ({ id }) => {
-    const { fetchProductById, productDetails } = useStore();
+    const { fetchProductById, productDetails, addNewItemToCart } = useStore();
     const { product, isLoading } = productDetails;
 
     useEffect(() => {
         fetchProductById(id);
     }, []);
+
+    const onAddToCart = useCallback((product, qty) => {
+        addNewItemToCart(product, qty)
+    }, [addNewItemToCart]);
 
     if (isLoading || !product) {
         return (
@@ -21,7 +25,7 @@ const ProductDetails= ({ id }) => {
 
     return (
         <div>
-            <ProductDetailsCard product={product} />
+            <ProductDetailsCard product={product} onClick={onAddToCart}/>
         </div>
     );
 };

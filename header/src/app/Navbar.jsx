@@ -1,8 +1,11 @@
 import './styles/index.scss'
 import { FaShoppingCart, FaUser } from 'react-icons/fa';
 import {Link} from "react-router-dom";
+import { useStore } from 'store/Store';
 
 const Navbar = ({ className }) => {
+    const { cart } = useStore();
+    const { totalQty } = cart;
     return (
         <nav className="bg-gray-800 text-white p-4 drop-shadow-xl rounded-md">
             <div className="container mx-auto flex items-center justify-between">
@@ -22,15 +25,15 @@ const Navbar = ({ className }) => {
                 </div>
 
                 <div className="flex items-center space-x-6">
-                    <a href="/login" className="text-lg hover:text-blue-400">
+                    <Link to="/login" className="text-lg hover:text-blue-400">
                         Login
-                    </a>
-                    <button className="relative">
+                    </Link>
+                    <Link to="/cart" className="relative">
                         <FaShoppingCart className="h-6 w-6" />
                         <span className="absolute top-4 left-4 text-xs bg-red-500 text-white rounded-full h-5 w-5 flex items-center justify-center">
-                            +9
+                            {totalQty}
                         </span>
-                    </button>
+                    </Link>
                 </div>
             </div>
         </nav>

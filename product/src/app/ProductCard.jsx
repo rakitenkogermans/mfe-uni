@@ -1,8 +1,8 @@
 import './styles/index.scss'
-import {memo} from "react";
+import {memo, useCallback} from "react";
 import {useNavigate} from "react-router-dom";
 
-const ProductCard = memo(({ product }) => {
+const ProductCard = memo(({ product, onClick }) => {
     const { name, price, description, types, image, id } = product;
     const navigate = useNavigate();
 
@@ -10,11 +10,11 @@ const ProductCard = memo(({ product }) => {
         navigate(`/product/${id}`);
     };
 
-
-    const addToCart = (event) => {
+    const addToCart = useCallback((event) => {
         event.stopPropagation();
-        console.log(`Added ${name} to the cart`);
-    };
+        // console.log(`Added ${name} to the cart`);
+        onClick(product);
+    }, [onClick, product]);
 
     return (
         <section onClick={navigateToProductDetails} className="cursor-pointer block bg-white shadow-md rounded-md p-4 hover:shadow-lg transform hover:-translate-y-1 transition-all duration-200">

@@ -1,3 +1,4 @@
+import './styles/index.scss'
 import {useParams} from "react-router-dom";
 import {ProductDetails} from "./ProductDetails";
 

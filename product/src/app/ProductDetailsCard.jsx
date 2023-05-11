@@ -1,6 +1,6 @@
 import {useState, memo, useCallback} from "react";
 
-const ProductDetailsCard = memo(({product}) => {
+const ProductDetailsCard = memo(({product, onClick}) => {
     const {name, price, image, longDescription, types} = product;
 
     const [quantity, setQuantity] = useState(1);
@@ -8,9 +8,10 @@ const ProductDetailsCard = memo(({product}) => {
     const incrementQuantity = useCallback(() => setQuantity(prevState => prevState + 1), []);
     const decrementQuantity = useCallback(() => setQuantity(prevState => prevState > 1 ? prevState - 1 : 1), []);
 
-    const addToCart = () => {
-        console.log(`Added ${quantity} ${name} to the cart`);
-    };
+    const addToCart = useCallback(() => {
+        // console.log(`Added ${quantity} ${name} to the cart`);
+        onClick(product, quantity);
+    }, [onClick, product, quantity]);
 
     return (
         <div className="container mx-auto px-4 py-6">

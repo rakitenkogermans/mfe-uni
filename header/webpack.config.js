@@ -50,6 +50,9 @@ module.exports = (env, argv) => {
       new ModuleFederationPlugin({
         name: "header",
         filename: "remoteEntry.js",
+        remotes: {
+          store: 'store@http://localhost:3003/remoteEntry.js',
+        },
         exposes: {
           "./Navbar": "./src/app/Navbar.jsx",
         },

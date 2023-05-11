@@ -6,7 +6,7 @@ import {useInfiniteScroll} from "./hooks/useInfiniteScroll";
 import {ProductCardSkeleton} from "./ProductCardSkeleton";
 
 const ProductList = memo(({ className }) => {
-    const { fetchProductsList, fetchNextProductsList, productList } = useStore();
+    const { fetchProductsList, fetchNextProductsList, addNewItemToCart, productList } = useStore();
     const { products, isLoading } = productList;
     const triggerRef = useRef(null);
 
@@ -23,11 +23,15 @@ const ProductList = memo(({ className }) => {
         callback: onScrollEnd,
     });
 
+    const onAddToCart = useCallback((product) => {
+        addNewItemToCart(product, 1)
+    }, [addNewItemToCart]);
+
     return (
         <div>
             <section className="grid grid-cols-3 gap-4">
                 {products.map((product) => (
-                    <ProductCard key={product.id} product={product} />
+                    <ProductCard key={product.id} product={product} onClick={onAddToCart}/>
                 ))}
                 {isLoading && (
                     <>

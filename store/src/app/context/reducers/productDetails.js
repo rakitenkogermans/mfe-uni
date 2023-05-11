@@ -1,5 +1,4 @@
 import {ProductDetailsActionTypes} from "../actions/productDetails";
-import {ProductListActionTypes} from "../actions/productList";
 
 const productDetailsReducer = (state, action) => {
     if (action.type === ProductDetailsActionTypes.PRODUCT_DETAILS_DISPLAY_ALERT) {

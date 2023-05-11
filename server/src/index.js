@@ -11,7 +11,7 @@ server.use(jsonServer.bodyParser);
 
 server.use(async (req, res, next) => {
     await new Promise((resolve) => {
-        setTimeout(resolve, 1800);
+        setTimeout(resolve, 500);
     });
     next();
 });
