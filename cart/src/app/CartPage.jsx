@@ -4,8 +4,10 @@ import { useStore } from 'store/Store';
 import {EmptyCart} from "./EmptyCart";
 import "./styles/index.scss";
 import {useCallback} from "react";
+import { useNavigate } from "react-router-dom";
 
 const CartPage = () => {
+    const navigate = useNavigate();
     const { cart, removeItemFromCart, changeItemQtyInCart, resetCart } = useStore();
     const { cartItems, totalQty } = cart;
 
@@ -21,6 +23,11 @@ const CartPage = () => {
         resetCart();
     }, [resetCart]);
 
+    const onBuy = useCallback(() => {
+        navigate("/success");
+        resetCart();
+    }, [navigate, resetCart]);
+
     return (
         <div>
             {cartItems.length === 0 ? (
@@ -29,7 +36,7 @@ const CartPage = () => {
                 <>
                     <h1 className="text-4xl font-bold mb-4">Your Cart</h1>
                     <CartItems cartItems={cartItems} onChangeQty={onChangeQty} onRemoveItem={onRemoveItem} />
-                    <CartSummary cartItems={cartItems} onResetCart={onResetCart} />
+                    <CartSummary cartItems={cartItems} onResetCart={onResetCart} onBuy={onBuy}/>
                 </>
             )}
         </div>

@@ -32,7 +32,6 @@ const productDetailsReducer = (state, action) => {
         return {
             ...state,
             isLoading: false,
-            hasMore: action.payload.length >= state.limit,
             product: {...action.payload}
         };
     }
@@ -44,6 +43,13 @@ const productDetailsReducer = (state, action) => {
             showAlert: true,
             alertType: 'danger',
             alertText: action.payload.alertText,
+        };
+    }
+
+    if (action.type === ProductDetailsActionTypes.PRODUCT_DETAILS_RESET) {
+        return {
+            ...state,
+            product: null
         };
     }
 

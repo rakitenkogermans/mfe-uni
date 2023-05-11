@@ -4,11 +4,15 @@ import { useStore } from 'store/Store';
 import {ProductDetailsSkeleton} from "./ProductDetailsSkeleton";
 
 const ProductDetails= ({ id }) => {
-    const { fetchProductById, productDetails, addNewItemToCart } = useStore();
+    const { fetchProductById, productDetails, addNewItemToCart, resetProductDetails } = useStore();
     const { product, isLoading } = productDetails;
 
     useEffect(() => {
         fetchProductById(id);
+
+        return () => {
+            resetProductDetails();
+        }
     }, []);
 
     const onAddToCart = useCallback((product, qty) => {

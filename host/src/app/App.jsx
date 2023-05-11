@@ -3,6 +3,7 @@ import {createBrowserRouter, createRoutesFromElements, Route, RouterProvider} fr
 import {MainLayout} from "./MainLayout";
 import {ProductDetailsPage} from "product/ProductDetailsPage";
 import {CartPage} from "cart/CartPage";
+import {SuccessPage} from "cart/SuccessPage";
 
 const router = createBrowserRouter(
     createRoutesFromElements(
@@ -11,6 +12,7 @@ const router = createBrowserRouter(
         }>
             <Route path="/" element={<HomePage />} />
             <Route path="/cart" element={<CartPage />} />
+            <Route path="/success" element={<SuccessPage />} />
             <Route path="/product/:id" element={<ProductDetailsPage />} />
         </Route>
     )

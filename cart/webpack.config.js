@@ -55,6 +55,7 @@ module.exports = (env, argv) => {
         },
         exposes: {
           "./CartPage": "./src/app/CartPage.jsx",
+          "./SuccessPage": "./src/app/SuccessPage.jsx",
         },
         shared: {
           ...deps,

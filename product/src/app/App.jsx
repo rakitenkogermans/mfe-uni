@@ -18,7 +18,6 @@ const router = createBrowserRouter(
         }>
             <Route path="/" element={<ProductList />} />
             <Route path="/product/:id" element={<ProductDetailsPage />} />
-            {/* ... etc. */}
         </Route>
     )
 );

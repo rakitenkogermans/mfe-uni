@@ -48,6 +48,7 @@ const initialState = {
     fetchProductsList: async function () {},
     fetchNextProductsList: async function () {},
     fetchProductById: async function () {},
+    resetProductDetails: function () {},
     addNewItemToCart: function () {},
     removeItemFromCart: function () {},
     changeItemQtyInCart: function () {},
@@ -104,9 +105,7 @@ const StoreProvider = ({ children }) => {
     }, [productListState.hasMore, productListState.isLoading, fetchProductsList]);
 
     const fetchProductById = useCallback(async (id) => {
-
         productDetailsDispatch({ type: ProductDetailsActionTypes.PRODUCT_DETAILS_BEGIN });
-
         try {
             const { data } = await $api.get(`/laptops/${id}`);
 
@@ -122,6 +121,10 @@ const StoreProvider = ({ children }) => {
                 })
             }
         }
+    }, []);
+
+    const resetProductDetails = useCallback(async () => {
+        productDetailsDispatch({ type: ProductDetailsActionTypes.PRODUCT_DETAILS_RESET });
     }, []);
 
     const addNewItemToCart = useCallback((product, qty) => {
@@ -170,6 +173,7 @@ const StoreProvider = ({ children }) => {
                 fetchProductsList,
                 fetchNextProductsList,
                 fetchProductById,
+                resetProductDetails,
                 addNewItemToCart,
                 removeItemFromCart,
                 changeItemQtyInCart,

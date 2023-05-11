@@ -1,11 +1,11 @@
 import {useCallback} from "react";
 
-const CartSummary = ({ cartItems, onResetCart }) => {
+const CartSummary = ({ cartItems, onResetCart, onBuy }) => {
     const totalPrice = cartItems.reduce((total, item) => total + (item.price * item.qty), 0);
 
     const handleBuy = useCallback(() => {
-        console.log(`Bought items worth $${totalPrice.toFixed(2)}`);
-    }, [totalPrice]);
+        onBuy();
+    }, [onBuy]);
 
     const handleDeleteAll = useCallback(() => {
         onResetCart();
