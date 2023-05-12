@@ -54,7 +54,7 @@ module.exports = (env, argv) => {
           store: 'store@http://localhost:3003/remoteEntry.js',
         },
         exposes: {
-          './ProductList': "./src/app/ProductList.jsx",
+          './ProductsPage': "./src/app/ProductsPage.jsx",
           './ProductDetailsPage': "./src/app/ProductDetailsPage.jsx"
         },
         shared: {

@@ -1,7 +1,7 @@
 {
   "laptops": [
     {
-      "id": "1",
+      "id": 1,
       "name": "Alienware M15 R5",
       "price": 1999,
       "description": "15.6-inch gaming laptop with 144Hz display",
@@ -12,7 +12,7 @@
       ]
     },
     {
-      "id": "2",
+      "id": 2,
       "name": "Dell XPS 13",
       "price": 1099,
       "description": "13.3-inch ultrabook with 4K display",
@@ -23,7 +23,7 @@
       ]
     },
     {
-      "id": "3",
+      "id": 3,
       "name": "Lenovo ThinkPad X1 Carbon",
       "price": 1699,
       "description": "14-inch business laptop with 4G LTE",
@@ -34,7 +34,7 @@
       ]
     },
     {
-      "id": "4",
+      "id": 4,
       "name": "HP Envy x360",
       "price": 899,
       "description": "13.3-inch 2-in-1 laptop with AMD Ryzen 7 processor",
@@ -45,7 +45,7 @@
       ]
     },
     {
-      "id": "5",
+      "id": 5,
       "name": "Acer Chromebook Spin 13",
       "price": 599,
       "description": "13.5-inch Chromebook with stylus support",
@@ -56,7 +56,7 @@
       ]
     },
     {
-      "id": "6",
+      "id": 6,
       "name": "Asus ROG Zephyrus G15",
       "price": 1499,
       "description": "15.6-inch gaming laptop with AMD Ryzen 7 processor",
@@ -67,7 +67,7 @@
       ]
     },
     {
-      "id": "7",
+      "id": 7,
       "name": "Dell Latitude 9420",
       "price": 2099,
       "description": "14-inch business laptop with 5G",
@@ -78,7 +78,7 @@
       ]
     },
     {
-      "id": "8",
+      "id": 8,
       "name": "Lenovo Yoga 9i",
       "price": 1299,
       "description": "14-inch 2-in-1 laptop with 4K display",
@@ -89,7 +89,7 @@
       ]
     },
     {
-      "id": "9",
+      "id": 9,
       "name": "Acer Predator Triton 300",
       "price": 1399,
       "description": "15.6-inch gaming laptop with 240Hz display",
@@ -100,7 +100,7 @@
       ]
     },
     {
-      "id": "10",
+      "id": 10,
       "name": "HP Elite Dragonfly",
       "price": 1999,
       "description": "13.3-inch business laptop with 5G",
@@ -111,7 +111,7 @@
       ]
     },
     {
-      "id": "12",
+      "id": 12,
       "name": "Lenovo Chromebook Duet",
       "price": 349,
       "description": "10.1-inch 2-in-1 Chromebook with detachable keyboard",
@@ -120,7 +120,7 @@
       "types": ["chromebook", "2in1"]
     },
     {
-      "id": "13",
+      "id": 13,
       "name": "Razer Blade Stealth 13",
       "price": 1599,
       "description": "13.3-inch ultrabook for gaming and productivity",
@@ -129,7 +129,7 @@
       "types": ["ultrabook", "gaming"]
     },
     {
-      "id": "14",
+      "id": 14,
       "name": "HP Chromebook x360 14c",
       "price": 549,
       "description": "14-inch 2-in-1 Chromebook with stylus support",
@@ -138,7 +138,7 @@
       "types": ["chromebook", "2in1"]
     },
     {
-      "id": "15",
+      "id": 15,
       "name": "Lenovo Legion 5",
       "price": 999,
       "description": "15.6-inch gaming laptop with AMD Ryzen 5 processor",
@@ -147,7 +147,7 @@
       "types": ["gaming"]
     },
     {
-      "id": "16",
+      "id": 16,
       "name": "Dell Inspiron 15 7000",
       "price": 849,
       "description": "15.6-inch ultrabook with NVIDIA GeForce MX330 graphics",
@@ -156,7 +156,7 @@
       "types": ["ultrabook"]
     },
     {
-      "id": "17",
+      "id": 17,
       "name": "Asus Chromebook Flip C434",
       "price": 599,
       "description": "14-inch 2-in-1 Chromebook with Intel Core m3 processor",
@@ -165,7 +165,7 @@
       "types": ["chromebook", "2in1"]
     },
     {
-      "id": "18",
+      "id": 18,
       "name": "HP Spectre x360 14",
       "price": 1399,
       "description": "14-inch 2-in-1 laptop with OLED display",
@@ -174,7 +174,7 @@
       "types": ["2in1"]
     },
     {
-      "id": "19",
+      "id": 19,
       "name": "Acer Nitro 5",
       "price": 849,
       "description": "15.6-inch gaming laptop with NVIDIA GeForce GTX 1650 graphics",
@@ -183,7 +183,7 @@
       "types": ["gaming"]
     },
     {
-      "id": "20",
+      "id": 20,
       "name": "Lenovo ThinkPad X13",
       "price": 1299,
       "description": "13.3-inch business laptop with AMD Ryzen 5 Pro processor",
@@ -192,7 +192,7 @@
       "types": ["business"]
     },
     {
-      "id": "21",
+      "id": 21,
       "name": "Dell G5 15 SE",
       "price": 1199,
       "description": "15.6-inch gaming laptop with AMD Ryzen 7 processor",
@@ -201,7 +201,7 @@
       "types": ["gaming"]
     },
     {
-      "id": "22",
+      "id": 22,
       "name": "Asus ZenBook Flip S",
       "price": 1399,
       "description": "13.3-inch 2-in-1 laptop with 4K OLED display",
@@ -210,7 +210,7 @@
       "types": ["ultrabook", "2in1"]
     },
     {
-      "id": "23",
+      "id": 23,
       "name": "Microsoft Surface Laptop 4",
       "price": 999,
       "description": "13.5-inch ultrabook with touchscreen display",
@@ -219,7 +219,7 @@
       "types": ["ultrabook"]
     },
     {
-      "id": "24",
+      "id": 24,
       "name": "Lenovo IdeaPad Flex 5",
       "price": 599,
       "description": "14-inch 2-in-1 laptop with AMD Ryzen 3 processor",
@@ -228,7 +228,7 @@
       "types": ["2in1"]
     },
     {
-      "id": "25",
+      "id": 25,
       "name": "HP Pavilion Gaming 15",
       "price": 899,
       "description": "15.6-inch gaming laptop with NVIDIA GeForce GTX 1650 graphics",
@@ -237,7 +237,7 @@
       "types": ["gaming"]
     },
     {
-      "id": "26",
+      "id": 26,
       "name": "Acer Swift 3",
       "price": 699,
       "description": "14-inch ultrabook with AMD Ryzen 7 processor",
@@ -246,7 +246,7 @@
       "types": ["ultrabook"]
     },
     {
-      "id": "27",
+      "id": 27,
       "name": "Asus TUF Gaming A15",
       "price": 1199,
       "description": "15.6-inch gaming laptop with AMD Ryzen 7 processor",
@@ -255,7 +255,7 @@
       "types": ["gaming"]
     },
     {
-      "id": "28",
+      "id": 28,
       "name": "Dell XPS 13",
       "price": 1399,
       "description": "13.4-inch ultrabook with touchscreen display",
@@ -264,7 +264,7 @@
       "types": ["ultrabook"]
     },
     {
-      "id": "29",
+      "id": 29,
       "name": "Lenovo IdeaPad 5",
       "price": 799,
       "description": "14-inch laptop with AMD Ryzen 5 processor",
@@ -273,7 +273,7 @@
       "types": ["business"]
     },
     {
-      "id": "30",
+      "id": 30,
       "name": "HP Envy x360",
       "price": 899,
       "description": "15.6-inch 2-in-1 laptop with AMD Ryzen 5 processor",
@@ -282,7 +282,7 @@
       "types": ["2in1"]
     },
     {
-      "id": "31",
+      "id": 31,
       "name": "Acer Aspire 5",
       "price": 549,
       "description": "15.6-inch laptop with AMD Ryzen 3 processor",
@@ -291,7 +291,7 @@
       "types": ["business"]
     },
     {
-      "id": "32",
+      "id": 32,
       "name": "Lenovo Yoga 7i",
       "price": 1099,
       "description": "14-inch 2-in-1 laptop with Intel Core i7 processor",
@@ -300,7 +300,7 @@
       "types": ["ultrabook", "2in1"]
     },
     {
-      "id": "33",
+      "id": 33,
       "name": "Asus ExpertBook B9",
       "price": 1499,
       "description": "14-inch business laptop with Intel Core i7 processor",
@@ -309,7 +309,7 @@
       "types": ["business"]
     },
     {
-      "id": "34",
+      "id": 34,
       "name": "HP Elite Dragonfly",
       "price": 1899,
       "description": "13.3-inch business laptop with 5G connectivity",
@@ -318,7 +318,7 @@
       "types": ["business"]
     },
     {
-      "id": "35",
+      "id": 35,
       "name": "Dell Inspiron 14 5000",
       "price": 749,
       "description": "14-inch laptop with Intel Core i5 processor",
@@ -327,7 +327,7 @@
       "types": ["business"]
     },
     {
-      "id": "36",
+      "id": 36,
       "name": "Acer Chromebook Spin 713",
       "price": 629,
       "description": "13.5-inch 2-in-1 Chromebook with Intel Core i5 processor",
@@ -339,7 +339,7 @@
       ]
     },
     {
-      "id": "37",
+      "id": 37,
       "name": "Razer Blade Stealth 13",
       "price": 1599,
       "description": "13.3-inch gaming ultrabook with NVIDIA GeForce GTX 1650 Ti graphics",
@@ -348,7 +348,7 @@
       "types": ["gaming", "ultrabook"]
     },
     {
-      "id": "38",
+      "id": 38,
       "name": "HP Chromebook x360 14c",
       "price": 649,
       "description": "14-inch 2-in-1 Chromebook with Intel Core i3 processor",
@@ -357,7 +357,7 @@
       "types": ["chromebook", "2in1"]
     },
     {
-      "id": "39",
+      "id": 39,
       "name": "Asus VivoBook S14",
       "price": 999,
       "description": "14-inch ultrabook with Intel Core i7 processor",
@@ -366,7 +366,7 @@
       "types": ["ultrabook"]
     },
     {
-      "id": "40",
+      "id": 40,
       "name": "Lenovo Legion 5",
       "price": 1099,
       "description": "15.6-inch gaming laptop with NVIDIA GeForce GTX 1650 graphics",
@@ -375,7 +375,7 @@
       "types": ["gaming"]
     },
     {
-      "id": "42",
+      "id": 42,
       "name": "Acer Nitro 5",
       "price": 799,
       "description": "15.6-inch gaming laptop with AMD Ryzen 5 processor",
@@ -384,7 +384,7 @@
       "types": ["gaming"]
     },
     {
-      "id": "43",
+      "id": 43,
       "name": "HP Spectre x360",
       "price": 1399,
       "description": "13.3-inch 2-in-1 laptop with OLED display",
@@ -393,7 +393,7 @@
       "types": ["ultrabook", "2in1"]
     },
     {
-      "id": "44",
+      "id": 44,
       "name": "Asus Chromebook Flip C434",
       "price": 599,
       "description": "14-inch 2-in-1 Chromebook with Intel Core m3 processor",
@@ -402,7 +402,7 @@
       "types": ["chromebook", "2in1"]
     },
     {
-      "id": "45",
+      "id": 45,
       "name": "Microsoft Surface Pro 7",
       "price": 799,
       "description": "12.3-inch 2-in-1 tablet with Intel Core i3 processor",
@@ -411,7 +411,7 @@
       "types": ["2in1"]
     },
     {
-      "id": "46",
+      "id": 46,
       "name": "Lenovo ThinkPad X1 Carbon",
       "price": 1699,
       "description": "14-inch business laptop with Intel Core i7 processor",

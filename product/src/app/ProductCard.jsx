@@ -12,7 +12,6 @@ const ProductCard = memo(({ product, onClick }) => {
 
     const addToCart = useCallback((event) => {
         event.stopPropagation();
-        // console.log(`Added ${name} to the cart`);
         onClick(product);
     }, [onClick, product]);
 

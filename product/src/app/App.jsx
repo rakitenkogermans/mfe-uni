@@ -1,4 +1,3 @@
-import {ProductList} from "./ProductList";
 import {memo} from "react";
 import {
     createBrowserRouter,
@@ -8,6 +7,7 @@ import {
     RouterProvider
 } from "react-router-dom";
 import {ProductDetailsPage} from "./ProductDetailsPage";
+import {ProductsPage} from "./ProductsPage";
 
 const router = createBrowserRouter(
     createRoutesFromElements(
@@ -16,7 +16,7 @@ const router = createBrowserRouter(
                 <Outlet />
             </div>
         }>
-            <Route path="/" element={<ProductList />} />
+            <Route path="/" element={<ProductsPage />} />
             <Route path="/product/:id" element={<ProductDetailsPage />} />
         </Route>
     )

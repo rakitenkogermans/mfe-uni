@@ -1,9 +1,9 @@
-import {ProductList} from "product/ProductList";
+import {ProductsPage} from "product/ProductsPage";
 
 const HomePage = ({ className }) => {
     return (
         <div>
-            <ProductList />
+            <ProductsPage />
         </div>
     );
 };

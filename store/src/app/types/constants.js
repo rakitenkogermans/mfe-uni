@@ -1,5 +1,3 @@
-// export const __API__ = process.env.__API__;
-
 export const ProductSortField = {
     ID: 'id',
     NAME: 'name',
@@ -11,6 +9,6 @@ export const ProductTypes = {
     GAMING: 'GAMING',
     ULTRABOOK: 'ULTRABOOK',
     BUSINESS: 'BUSINESS',
-    TWO_IN_ONE: '2 IN 1',
+    '2IN1': '2IN1',
     CHROMEBOOK: 'CHROMEBOOK'
 }

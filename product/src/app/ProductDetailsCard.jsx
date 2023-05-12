@@ -25,8 +25,8 @@ const ProductDetailsCard = memo(({product, onClick}) => {
                     <div className="mb-4">
                         {types.map((type, index) => (
                             <span key={index} className="inline-flex items-center bg-blue-100 text-blue-600 py-1 px-2 rounded-md text-sm font-semibold mr-2 mb-2">
-                {type}
-              </span>
+                                {type}
+                            </span>
                         ))}
                     </div>
                     <p className="text-gray-700">{longDescription}</p>

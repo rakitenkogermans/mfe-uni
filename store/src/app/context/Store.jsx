@@ -1,4 +1,4 @@
-import {createContext, useCallback, useContext, useReducer} from 'react';
+import {createContext, useCallback, useContext, useReducer, useState} from 'react';
 import {productListReducer} from "./reducers/productList";
 import {ProductListActionTypes} from "./actions/productList";
 import {AxiosError} from "axios";
@@ -17,7 +17,8 @@ const productListInitialState = {
     page: 1,
     search: "",
     sort: ProductSortField.ID,
-    type: ProductTypes.ALL,
+
+    _init: false,
 
     isLoading: false,
     showAlert: false,
@@ -45,6 +46,8 @@ const initialState = {
     productDetails: productDetailsInitialState,
     cart: cartInitialState,
 
+    type: ProductTypes.ALL,
+
     fetchProductsList: async function () {},
     fetchNextProductsList: async function () {},
     fetchProductById: async function () {},
@@ -53,6 +56,9 @@ const initialState = {
     removeItemFromCart: function () {},
     changeItemQtyInCart: function () {},
     resetCart: function () {},
+    getProductTypes: function () {},
+    changeProductType: function () {},
+    nextPage: function () {},
 }
 
 const Store = createContext(initialState);
@@ -62,8 +68,11 @@ const StoreProvider = ({ children }) => {
     const [productDetailsState, productDetailsDispatch] = useReducer(productDetailsReducer, productDetailsInitialState);
     const [cartState, cartDispatch] = useReducer(cartReducer, cartInitialState);
 
-    const fetchProductsList = useCallback(async () => {
-        const { search, order, sort, page, type, limit } = productListState;
+    const [type, setType] = useState(ProductTypes.ALL);
+
+    const { search, order, sort, page, limit } = productListState;
+
+    const fetchProductsList = useCallback(async (init, replace) => {
 
         productListDispatch({ type: ProductListActionTypes.PRODUCT_LIST_BEGIN });
 
@@ -71,22 +80,22 @@ const StoreProvider = ({ children }) => {
             const { data } = await $api.get('/laptops', {
                 params: {
                     _limit: limit,
-                    _page: page,
+                    _page: init ? 1 : page,
                     _sort: sort,
                     _order: order,
                     q: search,
-                    types: type === ProductTypes.ALL ? undefined : type,
+                    types: type === ProductTypes.ALL ? undefined : type.toLowerCase(),
                 },
             });
 
             productListDispatch({
                 type: ProductListActionTypes.PRODUCT_LIST_SUCCESS,
-                payload: data,
+                payload: {data, replace},
             });
 
             productListDispatch({
                 type: ProductListActionTypes.PRODUCT_LIST_SET_PAGE,
-                payload: productListState.page + 1
+                payload: init ? 2 : page + 1
             });
         } catch (err) {
             if (err instanceof AxiosError) {
@@ -96,7 +105,16 @@ const StoreProvider = ({ children }) => {
                 })
             }
         }
-    }, [productListState]);
+    }, [limit, page, sort, order, search, type]);
+
+    const nextPage = useCallback(async () => {
+        if (productListState.hasMore && !productListState.isLoading) {
+            productListDispatch({
+                type: ProductListActionTypes.PRODUCT_LIST_SET_PAGE,
+                payload: productListState.page + 1
+            });
+        }
+    }, [productListState.hasMore, productListState.isLoading, productListState.page]);
 
     const fetchNextProductsList = useCallback(async () => {
         if (productListState.hasMore && !productListState.isLoading) {
@@ -164,12 +182,25 @@ const StoreProvider = ({ children }) => {
         localStorage.removeItem(LOCAL_STORAGE_USER_KEY);
     };
 
+    const getProductTypes = useCallback(() => {
+        return Object.entries(ProductTypes).map(([key, value]) => value);
+    }, []);
+
+    const changeProductType = useCallback((newType) => {
+        productListDispatch({
+            type: ProductListActionTypes.PRODUCT_LIST_RESET
+        })
+
+        setType(newType);
+    }, []);
+
     return (
         <Store.Provider
             value={{
                 productList: {...productListState},
                 productDetails: {...productDetailsState},
                 cart: {...cartState},
+                type,
                 fetchProductsList,
                 fetchNextProductsList,
                 fetchProductById,
@@ -178,6 +209,9 @@ const StoreProvider = ({ children }) => {
                 removeItemFromCart,
                 changeItemQtyInCart,
                 resetCart,
+                getProductTypes,
+                changeProductType,
+                nextPage
             }}
         >
             {children}

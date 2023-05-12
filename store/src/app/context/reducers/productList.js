@@ -1,4 +1,5 @@
 import { ProductListActionTypes } from "../actions/productList";
+import {ProductTypes} from "../../types/constants";
 
 const productListReducer = (state, action) => {
     if (action.type === ProductListActionTypes.PRODUCT_LIST_DISPLAY_ALERT) {
@@ -35,8 +36,9 @@ const productListReducer = (state, action) => {
         return {
             ...state,
             isLoading: false,
-            hasMore: action.payload.length >= state.limit,
-            products: [...oldProducts, ...action.payload]
+            hasMore: action.payload.data.length >= state.limit,
+            products: action.payload.replace ? [...action.payload.data] : [...oldProducts, ...action.payload.data],
+            _init: true
         };
     }
 
@@ -54,6 +56,20 @@ const productListReducer = (state, action) => {
         return {
             ...state,
             page: action.payload,
+        };
+    }
+
+    if (action.type === ProductListActionTypes.PRODUCT_LIST_CHANGE_TYPE) {
+        return {
+            ...state,
+            type: ProductTypes[action.payload],
+        };
+    }
+
+    if (action.type === ProductListActionTypes.PRODUCT_LIST_RESET) {
+        return {
+            ...state,
+            products: [],
         };
     }
 
