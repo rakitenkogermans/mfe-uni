@@ -7,7 +7,18 @@ import {ProductCardSkeleton} from "./ProductCardSkeleton";
 import {NoProductsFound} from "./NoProductsFound";
 
 const ProductList = memo(({ className }) => {
-    const { fetchProductsList, fetchNextProductsList, addNewItemToCart, productList, type } = useStore();
+    const {
+        fetchProductsList,
+        fetchNextProductsList,
+        addNewItemToCart,
+        productList,
+        type,
+        minPrice,
+        maxPrice,
+        sort,
+        order,
+        search
+    } = useStore();
     const { products, isLoading, _init } = productList;
     const triggerRef = useRef(null);
 
@@ -17,7 +28,7 @@ const ProductList = memo(({ className }) => {
 
     useEffect(() => {
         fetchProductsList(true, true);
-    }, [type]);
+    }, [type, minPrice, maxPrice, sort, order, search]);
 
     useInfiniteScroll({
         triggerRef,

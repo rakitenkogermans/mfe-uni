@@ -2,10 +2,22 @@ import './styles/index.scss'
 import { FaShoppingCart, FaUser } from 'react-icons/fa';
 import {Link} from "react-router-dom";
 import { useStore } from 'store/Store';
+import {useCallback, useState} from "react";
 
 const Navbar = ({ className }) => {
-    const { cart } = useStore();
+    const { cart, changeSearch } = useStore();
+    const [search, setSearch] = useState('');
+
     const { totalQty } = cart;
+
+    const changeSearchHandler = useCallback((e) => {
+        setSearch(e.target.value)
+    }, []);
+
+    const onClickHandler = () => {
+        changeSearch(search);
+    }
+
     return (
         <nav className="bg-gray-800 text-white p-4 drop-shadow-xl rounded-md">
             <div className="container mx-auto flex items-center justify-between">
@@ -18,8 +30,10 @@ const Navbar = ({ className }) => {
                         type="text"
                         className="bg-gray-700 text-white px-4 py-2 rounded-l-md focus:outline-none focus:ring focus:border-blue-300"
                         placeholder="Search..."
+                        value={search}
+                        onChange={changeSearchHandler}
                     />
-                    <button className="bg-blue-500 py-2 px-4 text-white rounded-r-md focus:outline-none hover:bg-blue-600">
+                    <button onClick={onClickHandler} className="bg-blue-500 py-2 px-4 text-white rounded-r-md focus:outline-none hover:bg-blue-600">
                         Search
                     </button>
                 </div>

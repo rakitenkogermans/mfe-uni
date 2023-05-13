@@ -13,10 +13,7 @@ import {CartActionTypes} from "./actions/cart";
 const productListInitialState = {
     hasMore: false,
     limit: 9,
-    order: 'asc',
     page: 1,
-    search: "",
-    sort: ProductSortField.ID,
 
     _init: false,
 
@@ -52,13 +49,21 @@ const initialState = {
     fetchNextProductsList: async function () {},
     fetchProductById: async function () {},
     resetProductDetails: function () {},
+
     addNewItemToCart: function () {},
     removeItemFromCart: function () {},
     changeItemQtyInCart: function () {},
     resetCart: function () {},
+
     getProductTypes: function () {},
     changeProductType: function () {},
     nextPage: function () {},
+
+    changeSortField: function () {},
+    changeOrder: function () {},
+    changeSearch: function () {},
+    changeMinPrice: function () {},
+    changeMaxPrice: function () {},
 }
 
 const Store = createContext(initialState);
@@ -69,8 +74,13 @@ const StoreProvider = ({ children }) => {
     const [cartState, cartDispatch] = useReducer(cartReducer, cartInitialState);
 
     const [type, setType] = useState(ProductTypes.ALL);
+    const [minPrice, setMinPrice] = useState(0);
+    const [maxPrice, setMaxPrice] = useState(3000);
+    const [sort, setSort] = useState(ProductSortField.ID);
+    const [order, setOrder] = useState('asc');
+    const [search, setSearch] = useState('');
 
-    const { search, order, sort, page, limit } = productListState;
+    const { page, limit } = productListState;
 
     const fetchProductsList = useCallback(async (init, replace) => {
 
@@ -84,6 +94,8 @@ const StoreProvider = ({ children }) => {
                     _sort: sort,
                     _order: order,
                     q: search,
+                    price_gte: minPrice,
+                    price_lte: maxPrice,
                     types: type === ProductTypes.ALL ? undefined : type.toLowerCase(),
                 },
             });
@@ -105,7 +117,7 @@ const StoreProvider = ({ children }) => {
                 })
             }
         }
-    }, [limit, page, sort, order, search, type]);
+    }, [limit, page, sort, order, search, minPrice, maxPrice, type]);
 
     const nextPage = useCallback(async () => {
         if (productListState.hasMore && !productListState.isLoading) {
@@ -194,6 +206,46 @@ const StoreProvider = ({ children }) => {
         setType(newType);
     }, []);
 
+    const changeSortField = useCallback((newSort) => {
+        productListDispatch({
+            type: ProductListActionTypes.PRODUCT_LIST_RESET
+        })
+
+        setSort(newSort);
+    }, []);
+
+    const changeOrder = useCallback((newOrder) => {
+        productListDispatch({
+            type: ProductListActionTypes.PRODUCT_LIST_RESET
+        })
+
+        setOrder(newOrder);
+    }, []);
+
+    const changeSearch = useCallback((newSearch) => {
+        productListDispatch({
+            type: ProductListActionTypes.PRODUCT_LIST_RESET
+        })
+
+        setSearch(newSearch);
+    }, []);
+
+    const changeMinPrice = useCallback((newMinPrice) => {
+        productListDispatch({
+            type: ProductListActionTypes.PRODUCT_LIST_RESET
+        })
+
+        setMinPrice(newMinPrice);
+    }, []);
+
+    const changeMaxPrice = useCallback((newMaxPrice) => {
+        productListDispatch({
+            type: ProductListActionTypes.PRODUCT_LIST_RESET
+        })
+
+        setMaxPrice(newMaxPrice);
+    }, []);
+
     return (
         <Store.Provider
             value={{
@@ -201,6 +253,11 @@ const StoreProvider = ({ children }) => {
                 productDetails: {...productDetailsState},
                 cart: {...cartState},
                 type,
+                minPrice,
+                maxPrice,
+                sort,
+                order,
+                search,
                 fetchProductsList,
                 fetchNextProductsList,
                 fetchProductById,
@@ -211,7 +268,12 @@ const StoreProvider = ({ children }) => {
                 resetCart,
                 getProductTypes,
                 changeProductType,
-                nextPage
+                nextPage,
+                changeSortField,
+                changeOrder,
+                changeSearch,
+                changeMinPrice,
+                changeMaxPrice,
             }}
         >
             {children}
