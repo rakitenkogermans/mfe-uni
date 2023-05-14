@@ -67,4 +67,4 @@ const Navbar = ({ className }) => {
     );
 };
 
-export default Navbar;
+export { Navbar };

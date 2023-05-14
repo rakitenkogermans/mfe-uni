@@ -1,9 +1,9 @@
-import {Navbar} from "./Navbar";
+import {Footer} from "./Footer";
 
 const App = () => {
     return (
         <div className="p-4 flex flex-col min-h-screen">
-            <Navbar />
+            <Footer />
         </div>
     );
 };

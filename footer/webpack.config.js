@@ -1,15 +1,15 @@
 const HtmlWebpackPlugin = require("html-webpack-plugin");
-const webpack = require("webpack");
-const { ModuleFederationPlugin } = webpack.container;
+const { ModuleFederationPlugin } = require("webpack").container;
+const path = require("path");
 const deps = require("./package.json").dependencies;
 
 module.exports = (env, argv) => {
   const isProduction = argv.mode === "production";
   return {
     entry: "./src/index.js",
-    mode: process.env.NODE_ENV || "development",
+    mode: "development",
     output: {
-      publicPath: "http://localhost:3000/",
+      publicPath: "http://localhost:3006/",
     },
     devServer: {
       port: env.port,
@@ -46,21 +46,12 @@ module.exports = (env, argv) => {
         },
       ],
     },
-
     plugins: [
       new ModuleFederationPlugin({
-        name: "host",
+        name: "footer",
         filename: "remoteEntry.js",
-        remotes: {
-          header: 'header@http://localhost:3001/remoteEntry.js',
-          product: 'product@http://localhost:3002/remoteEntry.js',
-          store: 'store@http://localhost:3003/remoteEntry.js',
-          cart: 'cart@http://localhost:3004/remoteEntry.js',
-          user: 'user@http://localhost:3005/remoteEntry.js',
-          footer: 'footer@http://localhost:3006/remoteEntry.js',
-        },
         exposes: {
-          "./App": "./src/app/App.jsx",
+          "./Footer": "./src/app/Footer.jsx",
         },
         shared: {
           ...deps,
@@ -85,5 +76,5 @@ module.exports = (env, argv) => {
         template: "./public/index.html",
       }),
     ],
-  };
-};
+  }
+}
