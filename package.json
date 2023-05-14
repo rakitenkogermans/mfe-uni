@@ -10,6 +10,7 @@
       "product",
       "store",
       "cart",
+      "user",
       "host"
     ]
   },

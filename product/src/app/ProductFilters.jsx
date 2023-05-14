@@ -19,8 +19,8 @@ const ProductFilters = () => {
         changeMaxPrice,
     } = useStore();
 
-    const debouncedChangeMinPrice = useDebounce(changeMinPrice, 1000);
-    const debouncedChangeMaxPrice = useDebounce(changeMaxPrice, 1000);
+    const debouncedChangeMinPrice = useDebounce(changeMinPrice, 500);
+    const debouncedChangeMaxPrice = useDebounce(changeMaxPrice, 500);
 
     return (
         <div className="flex flex-col gap-2 w-full bg-white p-4 mb-4 shadow-md rounded-md">

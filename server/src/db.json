@@ -435,5 +435,31 @@
       "role": "USER",
       "avatar": "https://www.springboard.com/blog/wp-content/uploads/2022/06/what-does-a-coder-do-2022-career-guide-1.jpg"
     }
+  ],
+  "profile": [
+    {
+      "id": "1",
+      "name": "John Doe",
+      "email": "johndoe@example.com",
+      "address": "789 Elm Street",
+      "city": "Riga",
+      "state": "Riga District",
+      "postal_code": "LV-1001",
+      "country": "Latvia",
+      "phone_number": "+371 21 123 456",
+      "avatar": "https://marketplace.canva.com/EAFEits4-uw/1/0/1600w/canva-boy-cartoon-gamer-animated-twitch-profile-photo-oEqs2yqaL8s.jpg"
+    },
+    {
+      "id": "2",
+      "name": "Jane Smith",
+      "email": "janesmith@example.com",
+      "address": "456 Oak Avenue",
+      "city": "Daugavpils",
+      "state": "Latgale",
+      "postal_code": "LV-5401",
+      "country": "Latvia",
+      "phone_number": "+371 29 987 654",
+      "avatar": "https://www.springboard.com/blog/wp-content/uploads/2022/06/what-does-a-coder-do-2022-career-guide-1.jpg"
+    }
   ]
 }

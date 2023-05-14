@@ -5,8 +5,12 @@ import { useStore } from 'store/Store';
 import {useCallback, useState} from "react";
 
 const Navbar = ({ className }) => {
-    const { cart, changeSearch } = useStore();
+    const { cart, changeSearch, logoutUser, user } = useStore();
     const [search, setSearch] = useState('');
+
+    const {
+        user: loggedInUser,
+    } = user;
 
     const { totalQty } = cart;
 
@@ -39,9 +43,18 @@ const Navbar = ({ className }) => {
                 </div>
 
                 <div className="flex items-center space-x-6">
-                    <Link to="/login" className="text-lg hover:text-blue-400">
-                        Login
-                    </Link>
+                    {loggedInUser ? (
+                        <>
+                            <span className="text-white text-lg">Hello, {loggedInUser.username}!</span>
+                            <button onClick={logoutUser} className="inline-block text-sm px-4 py-2 leading-none border rounded text-white border-white hover:border-blue-500 hover:text-white hover:bg-blue-500 mt-4 lg:mt-0">
+                                Logout
+                            </button>
+                        </>
+                    ): (
+                        <Link to="/login" className="text-lg hover:text-blue-400">
+                            Login
+                        </Link>
+                    )}
                     <Link to="/cart" className="relative">
                         <FaShoppingCart className="h-6 w-6" />
                         <span className="absolute top-4 left-4 text-xs bg-red-500 text-white rounded-full h-5 w-5 flex items-center justify-center">

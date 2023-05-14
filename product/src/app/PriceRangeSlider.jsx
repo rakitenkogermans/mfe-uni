@@ -11,6 +11,15 @@ const PriceRangeSlider = ({min, max, changeMinPrice, changeMaxPrice}) => {
         }
     }, []);
 
+    // useEffect(() => {
+    //     if (min !== minPrice) {
+    //         setMinPrice(min);
+    //     }
+    //     if (max !== maxPrice) {
+    //         setMaxPrice(max);
+    //     }
+    // }, [min, max]);
+
     const handleMinPriceChange = (e) => {
         setMinPrice(e.target.value);
         changeMinPrice(e.target.value);

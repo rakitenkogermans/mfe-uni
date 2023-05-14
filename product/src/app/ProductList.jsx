@@ -17,7 +17,9 @@ const ProductList = memo(({ className }) => {
         maxPrice,
         sort,
         order,
-        search
+        search,
+        page,
+        resetFilter
     } = useStore();
     const { products, isLoading, _init } = productList;
     const triggerRef = useRef(null);
@@ -27,8 +29,8 @@ const ProductList = memo(({ className }) => {
     }, [fetchNextProductsList]);
 
     useEffect(() => {
-        fetchProductsList(true, true);
-    }, [type, minPrice, maxPrice, sort, order, search]);
+        fetchProductsList(true, false);
+    }, [type, minPrice, maxPrice, sort, order, search, page]);
 
     useInfiniteScroll({
         triggerRef,
@@ -42,7 +44,7 @@ const ProductList = memo(({ className }) => {
     return (
         <div>
             {products.length === 0 ? (
-                !isLoading && _init && <NoProductsFound/>
+                !isLoading && _init && <NoProductsFound resetFilter={resetFilter}/>
             ) : null}
             <section className="grid grid-cols-3 gap-4">
                 {products.map((product) => (
