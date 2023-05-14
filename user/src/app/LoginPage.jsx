@@ -22,7 +22,13 @@ const LoginPage = () => {
         return <Navigate to="/" />
     }
     return (
-        <LoginForm handleLogin={loginUser}/>
+        <LoginForm
+            isLoading={isLoading}
+            handleLogin={loginUser}
+            showAlert={showAlert}
+            alertText={alertText}
+            alertType={alertType}
+        />
     )
 }
 

@@ -131,7 +131,7 @@ const StoreProvider = ({ children }) => {
             if (err instanceof AxiosError)
                 userDispatch({
                     type: UserActionTypes.SETUP_USER_ERROR,
-                    payload: { alertText: 'Something went wrong! Try again!' },
+                    payload: { alertText: 'Invalid username or password!' },
                 });
         }
     }, []);

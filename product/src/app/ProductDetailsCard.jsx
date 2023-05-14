@@ -1,4 +1,6 @@
 import {useState, memo, useCallback} from "react";
+import { AiOutlineArrowLeft } from 'react-icons/ai';
+import {Link} from "react-router-dom";
 
 const ProductDetailsCard = memo(({product, onClick}) => {
     const {name, price, image, longDescription, types} = product;
@@ -9,12 +11,17 @@ const ProductDetailsCard = memo(({product, onClick}) => {
     const decrementQuantity = useCallback(() => setQuantity(prevState => prevState > 1 ? prevState - 1 : 1), []);
 
     const addToCart = useCallback(() => {
-        // console.log(`Added ${quantity} ${name} to the cart`);
         onClick(product, quantity);
     }, [onClick, product, quantity]);
 
     return (
         <div className="container mx-auto px-4 py-6">
+            <div className="flex">
+                <Link to="/" className="flex items-center bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mb-4">
+                    <AiOutlineArrowLeft className="mr-1" />
+                    Back
+                </Link>
+            </div>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                 <div>
                     <img src={image} alt={name} className="w-full h-auto object-cover" />

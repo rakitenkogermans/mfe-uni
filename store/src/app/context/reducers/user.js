@@ -40,7 +40,7 @@ const userReducer = (state, action) => {
             ...state,
             isLoading: false,
             showAlert: true,
-            alertType: 'danger',
+            alertType: 'error',
             alertText: action.payload.alertText,
         };
     }

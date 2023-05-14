@@ -1,6 +1,7 @@
 import { useState } from 'react';
+import {Alert} from "./Alert";
 
-const LoginForm = ({ handleLogin }) => {
+const LoginForm = ({ handleLogin, alertText, alertType, showAlert, isLoading }) => {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
 
@@ -21,6 +22,11 @@ const LoginForm = ({ handleLogin }) => {
         <div className="w-full max-w-xs mx-auto mt-20">
             <form onSubmit={handleSubmit} className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
                 <h2 className="mb-4 text-2xl font-bold text-center">Login</h2>
+                {showAlert && (
+                    <div className="mb-4">
+                        <Alert type="error" message={alertText} />
+                    </div>
+                )}
                 <div className="mb-4">
                     <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="username">
                         Username
@@ -47,10 +53,11 @@ const LoginForm = ({ handleLogin }) => {
                 </div>
                 <div className="flex items-center justify-between">
                     <button
+                        disabled={isLoading}
                         type="submit"
-                        className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+                        className={`group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 ${isLoading ? 'opacity-50 cursor-not-allowed' : ''}`}
                     >
-                        Login
+                        {isLoading ? 'Loading...' : 'Login'}
                     </button>
                 </div>
             </form>
