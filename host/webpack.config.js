@@ -4,12 +4,14 @@ const { ModuleFederationPlugin } = webpack.container;
 const deps = require("./package.json").dependencies;
 
 module.exports = (env, argv) => {
-  const isProduction = argv.mode === "production";
+  const mode = env.mode || 'development';
   return {
     entry: "./src/index.js",
-    mode: process.env.NODE_ENV || "development",
+    mode,
     output: {
+      filename: '[name].[contenthash].js',
       publicPath: "http://localhost:3000/",
+      clean: true
     },
     devServer: {
       port: env.port,

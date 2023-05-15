@@ -4,12 +4,14 @@ const path = require("path");
 const deps = require("./package.json").dependencies;
 
 module.exports = (env, argv) => {
-  const isProduction = argv.mode === "production";
+  const mode = env.mode || 'development';
   return {
     entry: "./src/index.js",
-    mode: "development",
+    mode,
     output: {
+      filename: '[name].[contenthash].js',
       publicPath: "http://localhost:3006/",
+      clean: true
     },
     devServer: {
       port: env.port,
