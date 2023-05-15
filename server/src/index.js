@@ -9,13 +9,6 @@ const router = jsonServer.router(path.resolve(__dirname, 'db.json'));
 server.use(jsonServer.defaults({}));
 server.use(jsonServer.bodyParser);
 
-server.use(async (req, res, next) => {
-    await new Promise((resolve) => {
-        setTimeout(resolve, 500);
-    });
-    next();
-});
-
 // login endpoint
 server.post('/login', (req, res) => {
     try {
@@ -36,14 +29,6 @@ server.post('/login', (req, res) => {
         return res.status(500).json({ message: e.message });
     }
 });
-
-// server.use((req, res, next) => {
-//     if (!req.headers.authorization) {
-//         return res.status(403).json({ message: 'AUTH ERROR' });
-//     }
-//
-//     next();
-// });
 
 server.use(router);
 
