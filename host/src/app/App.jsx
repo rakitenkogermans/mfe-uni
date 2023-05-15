@@ -1,22 +1,46 @@
-import {ProductsPage} from "product/ProductsPage";
 import {createBrowserRouter, createRoutesFromElements, Route, RouterProvider} from "react-router-dom";
 import {MainLayout} from "./MainLayout";
-import {ProductDetailsPage} from "product/ProductDetailsPage";
-import {CartPage} from "cart/CartPage";
-import {SuccessPage} from "cart/SuccessPage";
-import {LoginPage} from "user/LoginPage";
 import {NotFoundPage} from "./NotFoundPage";
+
+import {lazy, Suspense} from "react";
+import {PageLoader} from "./PageLoader";
+
+const ProductsPage = lazy(() => import("product/ProductsPage"));
+const ProductDetailsPage = lazy(() => import("product/ProductDetailsPage"));
+const CartPage = lazy( () => import("cart/CartPage"));
+const SuccessPage = lazy(() => import("cart/SuccessPage"));
+const LoginPage = lazy(() => import( "user/LoginPage"));
 
 const router = createBrowserRouter(
     createRoutesFromElements(
         <Route element={
             <MainLayout/>
         }>
-            <Route path="/" element={<ProductsPage />} />
-            <Route path="/login" element={<LoginPage />} />
-            <Route path="/cart" element={<CartPage />} />
-            <Route path="/success" element={<SuccessPage />} />
-            <Route path="/product/:id" element={<ProductDetailsPage />} />
+            <Route path="/" element={
+                <Suspense fallback={<PageLoader/>}>
+                    <ProductsPage />
+                </Suspense>
+            }/>
+            <Route path="/login" element={
+                <Suspense fallback={<PageLoader/>}>
+                    <LoginPage />
+                </Suspense>
+            }/>
+            <Route path="/cart" element={
+                <Suspense fallback={<PageLoader/>}>
+                    <CartPage />
+                </Suspense>
+            }/>
+            <Route path="/success" element={
+                <Suspense fallback={<PageLoader/>}>
+                    <SuccessPage />
+                </Suspense>
+            }/>
+            <Route path="/product/:id" element={
+                <Suspense fallback={<PageLoader/>}>
+                    <ProductDetailsPage />
+                </Suspense>
+            }/>
             <Route path="*" element={<NotFoundPage />} />
         </Route>
     )

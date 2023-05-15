@@ -1,6 +1,6 @@
 import {memo} from "react";
 import {createBrowserRouter, createRoutesFromElements, Outlet, Route, RouterProvider, Navigate} from "react-router-dom";
-import {LoginPage} from "./LoginPage";
+import LoginPage from "./LoginPage";
 
 const router = createBrowserRouter(
     createRoutesFromElements(

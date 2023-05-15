@@ -61,6 +61,7 @@ module.exports = (env, argv) => {
         },
         exposes: {
           "./App": "./src/app/App.jsx",
+          "./ErrorBoundary": "./src/app/ErrorBoundary.jsx"
         },
         shared: {
           ...deps,

@@ -6,8 +6,8 @@ import {
     Outlet,
     RouterProvider
 } from "react-router-dom";
-import {ProductDetailsPage} from "./ProductDetailsPage";
-import {ProductsPage} from "./ProductsPage";
+import ProductDetailsPage from "./ProductDetailsPage";
+import ProductsPage from "./ProductsPage";
 
 const router = createBrowserRouter(
     createRoutesFromElements(
