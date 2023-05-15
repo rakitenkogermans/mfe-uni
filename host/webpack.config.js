@@ -61,10 +61,6 @@ module.exports = (env, argv) => {
           user: 'user@http://localhost:3005/remoteEntry.js',
           footer: 'footer@http://localhost:3006/remoteEntry.js',
         },
-        exposes: {
-          "./App": "./src/app/App.jsx",
-          "./ErrorBoundary": "./src/app/ErrorBoundary.jsx"
-        },
         shared: {
           ...deps,
           react: {

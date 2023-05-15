@@ -4,7 +4,6 @@ import "./app/styles/index.scss";
 import App from './app/App';
 import { BrowserRouter } from 'react-router-dom'
 import { StoreProvider } from 'store/Store';
-import {ErrorBoundary} from 'host/ErrorBoundary';
 
 const container = document.getElementById('root');
 
@@ -13,11 +12,9 @@ const root = createRoot(container);
 
 // render app to root
 root.render(
-    <ErrorBoundary>
-        <StoreProvider>
-            <BrowserRouter>
-                <App />
-            </BrowserRouter>
-        </StoreProvider>
-    </ErrorBoundary>
+    <StoreProvider>
+        <BrowserRouter>
+            <App />
+        </BrowserRouter>
+    </StoreProvider>,
 );

@@ -53,7 +53,6 @@ module.exports = (env, argv) => {
         name: "product",
         filename: "remoteEntry.js",
         remotes: {
-          host: 'host@http://localhost:3000/remoteEntry.js',
           store: 'store@http://localhost:3003/remoteEntry.js',
         },
         exposes: {

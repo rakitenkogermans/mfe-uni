@@ -58,9 +58,6 @@ module.exports = (env, argv) => {
       new ModuleFederationPlugin({
         name: "store",
         filename: "remoteEntry.js",
-        remotes: {
-          host: 'host@http://localhost:3000/remoteEntry.js',
-        },
         exposes: {
           "./Store": "./src/app/context/Store.jsx",
         },
