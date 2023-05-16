@@ -2,6 +2,7 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 const webpack = require("webpack");
 const { ModuleFederationPlugin } = webpack.container;
 const deps = require("./package.json").dependencies;
+const CopyPlugin = require("copy-webpack-plugin");
 
 module.exports = (env, argv) => {
   const mode = env.mode || 'development';
@@ -84,6 +85,11 @@ module.exports = (env, argv) => {
       }),
       new HtmlWebpackPlugin({
         template: "./public/index.html",
+      }),
+      new CopyPlugin({
+        patterns: [
+          { from: "./public/assets", to: "./assets" },
+        ],
       }),
     ],
   };
