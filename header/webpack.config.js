@@ -1,16 +1,17 @@
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const { ModuleFederationPlugin } = require("webpack").container;
-const path = require("path");
 const deps = require("./package.json").dependencies;
 
 module.exports = (env, argv) => {
   const mode = env.mode || 'development';
+  const isDev = mode === 'development';
+
   return {
     entry: "./src/index.js",
     mode,
     output: {
       filename: '[name].[contenthash].js',
-      publicPath: "http://localhost:3001/",
+      publicPath: isDev ? "http://localhost:3001/" : "https://header.mfe-uni.germans.dev/",
       clean: true
     },
     devServer: {
@@ -22,7 +23,7 @@ module.exports = (env, argv) => {
       },
     },
     resolve: {
-      extensions: [".tsx", ".ts", ".jsx", ".js", ".json"],
+      extensions: [".jsx", ".js", ".json"],
     },
     module: {
       rules: [
@@ -31,7 +32,7 @@ module.exports = (env, argv) => {
           use: ["style-loader", "css-loader", "postcss-loader"],
         },
         {
-          test: /\.(js|jsx|tsx|ts)$/,
+          test: /\.(js|jsx)$/,
           loader: "babel-loader",
           exclude: /node_modules/,
           options: {
@@ -53,7 +54,7 @@ module.exports = (env, argv) => {
         name: "header",
         filename: "remoteEntry.js",
         remotes: {
-          store: 'store@http://localhost:3003/remoteEntry.js',
+          store: isDev ? 'store@http://localhost:3003/remoteEntry.js' : 'store@https://store.mfe-uni.germans.dev/remoteEntry.js',
         },
         exposes: {
           "./Navbar": "./src/app/Navbar.jsx",

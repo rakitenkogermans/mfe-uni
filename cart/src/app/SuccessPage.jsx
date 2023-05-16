@@ -12,4 +12,4 @@ const SuccessPage = () => {
     );
 };
 
-export { SuccessPage };
+export default SuccessPage;

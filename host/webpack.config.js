@@ -5,12 +5,14 @@ const deps = require("./package.json").dependencies;
 
 module.exports = (env, argv) => {
   const mode = env.mode || 'development';
+  const isDev = mode === 'development';
+
   return {
     entry: "./src/index.js",
     mode,
     output: {
       filename: '[name].[contenthash].js',
-      publicPath: "http://localhost:3000/",
+      publicPath: isDev ? "http://localhost:3000/" : "https://mfe-uni.germans.dev/",
       clean: true
     },
     devServer: {
@@ -22,7 +24,7 @@ module.exports = (env, argv) => {
       },
     },
     resolve: {
-      extensions: [".tsx", ".ts", ".jsx", ".js", ".json"],
+      extensions: [".jsx", ".js", ".json"],
     },
     module: {
       rules: [
@@ -31,7 +33,7 @@ module.exports = (env, argv) => {
           use: ["style-loader", "css-loader", "postcss-loader"],
         },
         {
-          test: /\.(js|jsx|tsx|ts)$/,
+          test: /\.(js|jsx)$/,
           loader: "babel-loader",
           exclude: /node_modules/,
           options: {
@@ -54,12 +56,12 @@ module.exports = (env, argv) => {
         name: "host",
         filename: "remoteEntry.js",
         remotes: {
-          header: 'header@http://localhost:3001/remoteEntry.js',
-          product: 'product@http://localhost:3002/remoteEntry.js',
-          store: 'store@http://localhost:3003/remoteEntry.js',
-          cart: 'cart@http://localhost:3004/remoteEntry.js',
-          user: 'user@http://localhost:3005/remoteEntry.js',
-          footer: 'footer@http://localhost:3006/remoteEntry.js',
+          header: isDev ? 'header@http://localhost:3001/remoteEntry.js' : 'header@https://header.mfe-uni.germans.dev/remoteEntry.js',
+          product: isDev ? 'product@http://localhost:3002/remoteEntry.js' : 'product@https://product.mfe-uni.germans.dev/remoteEntry.js',
+          store: isDev ? 'store@http://localhost:3003/remoteEntry.js' : 'store@https://store.mfe-uni.germans.dev/remoteEntry.js',
+          cart: isDev ? 'cart@http://localhost:3004/remoteEntry.js' : 'cart@https://cart.mfe-uni.germans.dev/remoteEntry.js',
+          user: isDev ? 'user@http://localhost:3005/remoteEntry.js' : 'user@https://user.mfe-uni.germans.dev/remoteEntry.js',
+          footer: isDev ? 'footer@http://localhost:3006/remoteEntry.js': 'footer@https://footer.mfe-uni.germans.dev/remoteEntry.js',
         },
         shared: {
           ...deps,

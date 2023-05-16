@@ -291,10 +291,10 @@ const StoreProvider = ({ children }) => {
         changeProductType(ProductTypes.ALL);
         changeSortField(ProductSortField.ID)
         changeOrder('asc')
-        changeSearch('')
-        changeMinPrice(0)
-        changeMaxPrice(3000)
-    } ,[changeProductType, changeSortField, changeOrder, changeSearch, changeMinPrice, changeMaxPrice]);
+        // changeSearch('')
+        // changeMinPrice(0)
+        // changeMaxPrice(3000)
+    } ,[changeProductType, changeSortField, changeOrder]);
 
     return (
         <Store.Provider

@@ -5,6 +5,7 @@ const deps = require("./package.json").dependencies;
 module.exports = (env, argv) => {
   const mode = env.mode || 'development';
   const isDev = mode === 'development';
+
   return {
     entry: "./src/index.js",
     mode,
