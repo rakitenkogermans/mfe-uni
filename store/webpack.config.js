@@ -6,7 +6,7 @@ const deps = require("./package.json").dependencies;
 module.exports = (env, argv) => {
   const mode = env.mode || 'development';
   const isDev = mode === 'development';
-  const apiUrl = env.apiUrl || 'https://api.mfe-uni.germans.dev/';
+  const apiUrl = env.apiUrl || 'http://localhost:8000';
 
   return {
     entry: "./src/index.js",
