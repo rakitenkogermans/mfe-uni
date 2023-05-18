@@ -9,3 +9,10 @@ This project has been developed in accordance with the bachelor's thesis of the 
 - Store microfrontend available - https://store.mfe-uni.germans.dev
 - User microfrontend available - https://user.mfe-uni.germans.dev
 - Host microfrontend available - https://mfe-uni.germans.dev
+
+## Available Users
+
+| Login            | Password |
+|:-----------------|:---------|
+| admin            | 123      |
+| user             | 123      |
